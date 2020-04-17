@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+
+%Packages
+\usepackage{amsfonts}	%Mathematische Zeichen und Fonts
+\usepackage{extarrows}	%Extra Pfeile
+\usepackage{listings} %Codeansicht
+\usepackage{scrlayer-scrpage} %Seitenkopf
+\usepackage{tikz} %tikz
+
+\usetikzlibrary{arrows, automata, positioning}
+\pagestyle{scrheadings}
+
+\begin{document}
+
+%Header
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 1} \\Tutorium 11}
+\ohead{Tim Luther, 410886 \\ Til Mohr, \\ Simon Michau, 406133}
+
+%Seiteninhalt
+\paragraph{Aufgabe H1}
+
+\paragraph{Aufgabe H2}
+Wir konstruieren einen Automaten, der das Problem modelliert. Dabei stehen a,b und c für den Übergang zum jeweiligen Zielzustand.
+%Automat
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2.8cm, semithick]
+\node[initial,state]	(A)									{A};
+\node[state]			(B)	[below left=2cm and 1cm of A]	{B};
+\node[state,accepting]	(C) [below right=2cm and 1cm of A]	{C};
+
+\path 	(A) edge [bend left=20, left] 	node {b} (B)
+			edge [bend left=20, right] 	node {c} (C)
+	 	(B)	edge [bend left=20, left] 	node {a} (A)
+	 		edge [bend left=20, below] 	node {c} (C)
+	 	(C)	edge [bend left=20, right] 	node {a} (A)
+	 		edge [bend left=20, below] 	node {b} (B)
+;
+\end{tikzpicture}
+\end{center}
+Wir reduzieren nun diesen Automaten um einfacher einen regulären Ausdruck für den Automaten ablesen zu können.
+
+%reduzierter Automat
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2.8cm, semithick]
+\node[initial,state]	(A)				{A};
+\node[state,accepting]	(C)	[right=2cm] {C};
+
+\path 	(A)	edge [loop above] 			node {ba+ca}(A)
+			edge [bend left=20, above]	node {c+bc}	(C)
+		(C) edge [bend left=20, below]	node {a+ba}	(A)
+			edge [loop right]			node {ac+bc}(C)
+;
+\end{tikzpicture}
+\end{center}	
+Damit der Automat wie in der Aufgabenstellung gewünscht funktioniert, nehmen wir an dass es der Anfangszustand A durch einen nicht eingezeichneten Übergang \textbf{a} erreicht wird.
+\\Vom Zustand A aus kann der Automat zunächst beliebig oft zwischen einem anderen Raum und A hin- und herspringen, solange er am Ende wieder im Zustand A angelangt \textbf{(ba+ca)*},
+\\allerdings muss er irgendwann durch den Übergang \textbf{(c+bc)} zum Zustand C gelangen, weil dies der einzige gültige Endzustand ist.
+\\nun kann der Automat entweder im Zustand C verbleiben und somit enden, oder
+\\beliebig oft durch den Übergang \textbf{(a+ba)} zurück nach A springen, solange er letztenendes wieder durch \textbf{(c+bc)} wieder im Endzustand landet. Hierbei kann der Automat wieder beliebig oft den Übergang \textbf{(ba+ca)} verwenden, wenn er sich im Zustand A befindet.
+\\Setzt man nun alle Ausdrücke zusammen, erhält man den Ausdruck
+\begin{center}
+A (BA+CA)* (C+BC) (AC+BC+(A+BA)(BA+CA)*(C+BC))*
+\end{center}
+welcher jeden nicht leeren Pfad durch das Museum beschreibt.
+
+\paragraph{Aufgabe H3}
+Es gilt wieder der Homomorphismus $h:a \mapsto b, b \mapsto ab$.
+\\Wenden wir also nun $h$ an um die Sprache zu bestimmen: 
+\begin{center}
+h(\{a,b\}*) = h(\{a,b\})* $\overset{h}{=}$ \{b,ab\}*
+\end{center}
+Als regulärer Ausdruck ergibt sich also (b+ab)*, die Sprache aus den Alphabetsymbolen a und b, in denen das Unterwort aa nicht vorkommt. 
+\\ \\Leite nun regulären Ausdruck für h(h(\{a,b\}*)) her. 
+\begin{center}
+h(h(\{a,b\}*)) = h(\{b,ab\}*) = h(\{b,ab\})* $\overset{h}{=}$ \{ab,bab\}*
+\end{center}
+Als regulärer Ausdruck also (ab+bab)*.
+
+\end{document}
