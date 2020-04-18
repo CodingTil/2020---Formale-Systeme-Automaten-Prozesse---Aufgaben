@@ -1,11 +1,12 @@
 \documentclass[11pt]{article}
 
 %Packages
-\usepackage{amsfonts}	%Mathematische Zeichen und Fonts
-\usepackage{extarrows}	%Extra Pfeile
-\usepackage{listings} %Codeansicht
+\usepackage{amsfonts}	      %Mathematische Zeichen und Fonts
+\usepackage{mathtools}        %Extra Mathematische Symbole
+\usepackage{extarrows}	      %Extra Pfeile
+\usepackage{listings}         %Codeansicht
 \usepackage{scrlayer-scrpage} %Seitenkopf
-\usepackage{tikz} %tikz
+\usepackage{tikz}             %tikz
 
 \usetikzlibrary{arrows, automata, positioning}
 \pagestyle{scrheadings}
@@ -14,10 +15,35 @@
 
 %Header
 \ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 1} \\Tutorium 11}
-\ohead{Tim Luther, 410886 \\ Til Mohr, \\ Simon Michau, 406133}
+\ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
 
 %Seiteninhalt
 \paragraph{Aufgabe H1}
+Gegeben ist $v,w\in\Sigma^{*}, vw=w^{R}v, \left\lvert w \right\lvert \geq  \left\lvert v \right\lvert$.
+\begin{description}
+\item[Fall 1:] $\left\lvert w \right\lvert = \left\lvert v \right\lvert$\par\nobreak
+	$\Rightarrow v=w^{R}, w=v \Rightarrow w=w^{R} \Rightarrow \left\lvert w \right\lvert =1 \lor \left\lvert w \right\lvert=0$
+	\begin{description}
+	\item[Fall 1.1:] $\left\lvert w \right\lvert = 0$\par\nobreak
+		$\Rightarrow v=w=\varepsilon$
+		\\Also ist $(\varepsilon\varepsilon)^{R} = \varepsilon\varepsilon$ wahr.
+	\item[Fall 1.2:] $\left\lvert w \right\lvert = 1$\par\nobreak
+		$\Rightarrow v=w, v,w\in\Sigma$
+		\\Sei $f \vcentcolon = v=w\in\Sigma$
+		\\Also ist $(ff)^{R}=ff$ wahr.
+	\end{description}
+\item[Fall 2:] $\left\lvert w \right\lvert > \left\lvert v \right\lvert$\par\nobreak
+	$\Rightarrow \left\lvert w \right\lvert = \left\lvert v \right\lvert +1$, da sonst Anfangsbedingung nicht erfüllt.
+	\begin{description}
+	\item[Fall 2.1:] $\left\lvert w \right\lvert + \left\lvert v \right\lvert$ ungerade\par\nobreak
+		$\Rightarrow$ Ersetze $w$ durch $cw'$ mit $c\in\Sigma, w=cw'$
+		\\ $\Rightarrow v=(w')^{R}$, da $vw=w^{R}v \Leftrightarrow vcw'=(cw')^{R}v=(w')^{R}cv$
+		\\Also ist $(vw)^{R}=((w')^{R}cw')^{R}=(w')^{R}c^{R}(w')^{R}={w'}^{R}cw'=vw$ wahr.
+	\item[Fall 2.2:] $\left\lvert w \right\lvert + \left\lvert v \right\lvert$ gerade\par\nobreak
+	$\Rightarrow v=w^{R}$
+	\\Also ist $(vw)^{R}=(w^{R}w)^{R}=w^{R}(w^{R})^{R}=vw$ wahr.
+	\end{description}
+\end{description}\hfill $\Box$
 
 \paragraph{Aufgabe H2}
 Wir konstruieren einen Automaten, der das Problem modelliert. Dabei stehen a,b und c für den Übergang zum jeweiligen Zielzustand.
