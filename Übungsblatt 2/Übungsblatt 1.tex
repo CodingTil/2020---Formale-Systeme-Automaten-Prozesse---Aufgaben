@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+
+%Packages
+\usepackage{amsfonts}	      %Mathematische Zeichen und Fonts
+\usepackage{mathtools}        %Extra Mathematische Symbole
+\usepackage{extarrows}	      %Extra Pfeile
+\usepackage{listings}         %Codeansicht
+\usepackage{scrlayer-scrpage} %Seitenkopf
+\usepackage{tikz}             %tikz
+
+\usetikzlibrary{arrows, automata, positioning}
+\pagestyle{scrheadings}
+
+\begin{document}
+
+%Header
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 2} \\Tutorium 11}
+\ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
+
+%Seiteninhalt
+\paragraph{Aufgabe H4}
+%Produktautomat
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[state]			(02)									{02};
+\node[state]			(12) [right=2cm of 02]					{12};
+\node[state,accepting]	(22) [right=2cm of 12]					{22};
+\node[state]			(01) [below=2cm of 02]					{01};
+\node[state]			(11) [right=2cm of 01]					{11};
+\node[state]			(21) [right=2cm of 11]					{21};
+\node[state,initial]	(00) [below=2cm of 01]					{00};
+\node[state]			(10) [right=2cm of 00]					{10};
+\node[state]			(20) [right=2cm of 10]					{20};
+
+\path 	(02) 	edge [above] 				node {b} (12)%02
+				edge [bend left=20, right] 	node {a} (01)
+		(12) 	edge [loop above=20, above] node {b} (12)%12
+				edge [bend left=20, right] 	node {a} (21)
+		(22) 	edge [loop above=20, above] node {b} (22)%22
+				edge [bend left=20, right] 	node {a} (11)
+		(01) 	edge [above right] 			node {b} (10)%01
+				edge [bend left=20, left] 	node {a} (02)
+		(11) 	edge [right]			 	node {b} (10)%11
+				edge [bend left=20, right] 	node {a} (22)
+		(21) 	edge [right]			 	node {b} (20)%21
+				edge [bend left=20, right] 	node {a} (12)
+		(00) 	edge [above]			 	node {b} (10)%00
+				edge [left] 				node {a} (01)
+		(10) 	edge [loop below=20, below] node {b} (10)%10
+				edge [right] 				node {a} (21)
+		(20) 	edge [loop below=20, below]	node {b} (20)%20
+				edge [left] 				node {a} (11)
+;
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Aufgabe H5}
+
+\paragraph{Aufgabe H6}
+
+\end{document}
