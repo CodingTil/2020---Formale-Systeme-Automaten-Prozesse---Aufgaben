@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  20 APR 2020 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  20 APR 2020 15:28
 entering extended mode
 **"./Übungsblatt 1.tex"
 ("Übungsblatt 1.tex"
@@ -649,13 +649,17 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
 
+Overfull \hbox (27.89058pt too wide) in paragraph at lines 78--79
+ [] 
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
 
 
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
@@ -670,8 +674,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                e.g., using
 (scrlayer-scrpage)                  \setlength{\headheight}{42.53044pt}
 (scrlayer-scrpage)                in your preamble.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
-3.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 8
+1.
 
 
 Overfull \vbox (30.53044pt too high) has occurred while \output is active []
@@ -682,10 +686,10 @@ Overfull \vbox (30.53044pt too high) has occurred while \output is active []
 ]
 ("Übungsblatt 1.aux") ) 
 Here is how much of TeX's memory you used:
- 17260 strings out of 492445
- 376217 string characters out of 3120290
- 466254 words of memory out of 3000000
- 21353 multiletter control sequences out of 15000+200000
+ 17269 strings out of 492445
+ 376394 string characters out of 3120290
+ 470899 words of memory out of 3000000
+ 21362 multiletter control sequences out of 15000+200000
  9308 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,20n,81p,400b,961s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -696,7 +700,7 @@ Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/App
 Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Us
 ers/User/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb>
-Output written on "Übungsblatt 1.pdf" (1 page, 59878 bytes).
+Output written on "Übungsblatt 1.pdf" (1 page, 60520 bytes).
 PDF statistics:
  29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

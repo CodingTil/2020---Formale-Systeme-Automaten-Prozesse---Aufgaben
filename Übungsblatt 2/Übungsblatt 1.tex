@@ -66,7 +66,15 @@
 \node[state,accepting]	(2) [above=2cm of 13] {\{2\}};
 \node[state,accepting]	(23)[right=2cm of 13] {\{2,3\}};
 
-%\path
+\path	(1) edge [above]	node {a,b} (3)
+		(3) edge [below]	node {b} (13)
+			edge [above]	node {a} (2)
+		(2) edge [loop right, right]	node {a,b} (2)
+		(13)edge [bend left=20, above] node {a} (23)
+			edge [loop below, below] node {b} (13)
+		(23)edge [loop right, right] node {a} (23)
+			edge [bend left=20, below] node {b} (13)
+;
 \end{tikzpicture}
 \end{center}
 
