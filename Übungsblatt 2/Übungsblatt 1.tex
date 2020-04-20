@@ -28,7 +28,7 @@
 \node[state]			(01) [below=2cm of 02]					{01};
 \node[state]			(11) [right=2cm of 01]					{11};
 \node[state]			(21) [right=2cm of 11]					{21};
-\node[state,initial]	(00) [below=2cm of 01]					{00};
+\node[initial,state]	(00) [below=2cm of 01]					{00};
 \node[state]			(10) [right=2cm of 00]					{10};
 \node[state]			(20) [right=2cm of 10]					{20};
 
@@ -57,5 +57,17 @@
 \paragraph{Aufgabe H5}
 
 \paragraph{Aufgabe H6}
+%Potenzmengen DFA
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(1) 					{\{1\}};
+\node[state,accepting]	(3)	[right=2cm of 1] 	{\{3\}};
+\node[state,accepting] 	(13)[right=2cm of 3] {\{1,3\}};
+\node[state,accepting]	(2) [above=2cm of 13] {\{2\}};
+\node[state,accepting]	(23)[right=2cm of 13] {\{2,3\}};
+
+%\path
+\end{tikzpicture}
+\end{center}
 
 \end{document}
