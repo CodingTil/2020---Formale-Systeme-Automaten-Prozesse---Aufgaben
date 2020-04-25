@@ -7,6 +7,7 @@
 \usepackage{listings}         %Codeansicht
 \usepackage{scrlayer-scrpage} %Seitenkopf
 \usepackage{tikz}             %tikz
+\usepackage{amsmath}
 
 \usetikzlibrary{arrows, automata, positioning}
 \pagestyle{scrheadings}
@@ -54,12 +55,31 @@
 \end{tikzpicture}
 \end{center}
 
-\paragraph{Aufgabe H5}
-Seien $\delta_{A}$ und $\hat{\delta}_{A}$ die Übergangsfunktionen von A. $\hat{\delta}_{A}$ erkennt also Wörter w mit $w\in aL$ bzw. Wörter w mit $w=av, v\in L$. Sei $q_{0A}$ der Startzustand aus A. So kann man einen Automaten B mit Startzustand $q_{0B}$ bilden:
-\[\hat{\delta}_{B}(q_{0B}, w) \coloneqq  \hat{\delta}_{A}(q_{0A}, aw), \forall w\in L\]
-Da L eine reguläre Sprache ist und insbesondere A ein DFA ist, ist auch B ein DFA.
-
 \newpage
+\paragraph{Aufgabe H5}
+Seien $Q_{A}$ die Zustände von A, $F_{A}\subseteq Q_{A}$ die Endzustände von A, $q_{0A}\in Q_{A}$ der Startzustand von A, $\delta_{A}$ und $\hat{\delta}_{A}$ die Übergangsfunktionen von A. Sei $\Sigma$ das Alphabet der Sprache $L$ und somit auch von $aL$.
+\begin{equation}\label{eq:umwandlung}
+\begin{split}
+aL &= L(M)\\
+&= \{aw\mid w\in L, \hat{\delta}_{A}(q_{0A}, aw)\in F_{A}\}\\
+&= \{a\}\{w\in L\mid \hat{\delta}_{A}(\delta_{A}(q_{0A}, a), w)\in F_{A}\}
+\end{split}
+\end{equation}
+Definiere nun: 
+\begin{align*}
+Q_{B}&\coloneqq Q_{A}\setminus\{q_{0A}\} & F_{B}&\coloneqq F_{A}\\
+q_{0B}&\coloneqq\delta_{A}(q_{0A},a)\\
+\delta_{B}(q,w)&\coloneqq\delta_{A}(q,w) & \hat{\delta}_{B}(q,w)&\coloneqq\hat{\delta}_{A}(q,w)
+\end{align*}
+Daraus kann man einen Automaten B definieren, der mithilfe von (\ref{eq:umwandlung}) die Sprache L darstellt:
+\begin{align*}
+\Rightarrow B&=(Q_{B},\Sigma, q_{0B}, \delta_{B}, F_{B})\\
+\Rightarrow L(B)&=\{w\in L\mid \hat{\delta}_{B}(q_{0B},w)\in F_{B}\}\\
+				&=\{w\in L\mid \hat{\delta}_{A}(\delta_{A}(q_{0A}, a), w)\in F_{A}\}\\
+				&=L
+\end{align*}
+Damit ist B also auch ein DFA.
+
 \paragraph{Aufgabe H6}
 %Potenzmengen DFA
 \begin{center}
@@ -69,14 +89,16 @@ Da L eine reguläre Sprache ist und insbesondere A ein DFA ist, ist auch B ein D
 \node[state,accepting] 	(13)[right=2cm of 3] {\{1,3\}};
 \node[state,accepting]	(2) [above=2cm of 13] {\{2\}};
 \node[state,accepting]	(23)[right=2cm of 13] {\{2,3\}};
+\node[state]			(E) [left=2cm of 2]	{$\O$};
 
 \path	(1) edge [above]				node {a,b} 	(3)
 		(3) edge [below]				node {b} 	(13)
 			edge [above]				node {a} 	(2)
-		(2) edge [loop right, right]	node {a,b}	(2)
+		(2) edge [above]				node {a,b}	(E)
+		(E) edge [loop left, left]		node {a,b}	(E)
 		(13)edge [bend left=20, above] 	node {a} 	(23)
 			edge [loop below, below] 	node {b} 	(13)
-		(23)edge [loop right, right] 	node {a} 	(23)
+		(23)edge [bend right=20, below]	node {a} 	(2)
 			edge [bend left=20, below] 	node {b} 	(13)
 ;
 \end{tikzpicture}

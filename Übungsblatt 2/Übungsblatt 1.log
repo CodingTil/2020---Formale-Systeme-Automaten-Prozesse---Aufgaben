@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.14)  21 APR 2020 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.14)  25 APR 2020 18:10
 entering extended mode
 **"./Übungsblatt 1.tex"
 ("Übungsblatt 1.tex"
@@ -541,23 +541,23 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 ("Übungsblatt 1.aux")
 \openout1 = `"Übungsblatt 1.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 \c@lstlisting=\count287
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 14.
+(scrlayer)             \begin{document} on input line 15.
 
 
 Package scrlayer-scrpage Warning: Very small head height detected!
@@ -609,8 +609,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                e.g., using
 (scrlayer-scrpage)                  \setlength{\headheight}{42.53044pt}
 (scrlayer-scrpage)                in your preamble.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 6
-2.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
+8.
 
 
 Overfull \vbox (30.53044pt too high) has occurred while \output is active []
@@ -619,28 +619,32 @@ Overfull \vbox (30.53044pt too high) has occurred while \output is active []
 [1{C:/Users/Til Mohr/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
-7.
+Overfull \hbox (2.41678pt too wide) in paragraph at lines 60--61
+\OT1/cmr/m/n/10.95 von A, $\OML/cmm/m/it/10.95 q[] \OMS/cmsy/m/n/10.95 2 \OML/c
+mm/m/it/10.95 Q[]$ \OT1/cmr/m/n/10.95 der Startzu-s-tand von A, $\OML/cmm/m/it/
+10.95 []$ \OT1/cmr/m/n/10.95 und $[]$ die []Ubergangsfunktionen
+ []
 
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 8
+7.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
 
-Overfull \hbox (27.89058pt too wide) in paragraph at lines 82--83
- [] 
- []
+
+LaTeX Warning: Command \O invalid in math mode on input line 92.
 
 [2] ("Übungsblatt 1.aux") ) 
 Here is how much of TeX's memory you used:
- 17469 strings out of 480930
- 376304 string characters out of 2909536
- 641060 words of memory out of 3000000
- 33067 multiletter control sequences out of 15000+200000
+ 17478 strings out of 480930
+ 376442 string characters out of 2909536
+ 641706 words of memory out of 3000000
+ 33076 multiletter control sequences out of 15000+200000
  538006 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,20n,81p,400b,938s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,20n,81p,420b,938s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmbxsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi1
@@ -649,7 +653,7 @@ fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "Übungsblatt 1.pdf" (2 pages, 93837 bytes).
+Output written on "Übungsblatt 1.pdf" (2 pages, 96638 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
