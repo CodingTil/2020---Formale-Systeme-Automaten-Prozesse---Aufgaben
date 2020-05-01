@@ -7,6 +7,8 @@
 \usepackage{listings}         %Codeansicht
 \usepackage{scrlayer-scrpage} %Seitenkopf
 \usepackage{tikz}             %tikz
+\usepackage{enumitem}		  %Enumerate
+\usepackage{listings}		  %Code snippets
 \usepackage{amsmath}
 
 \usetikzlibrary{arrows, automata, positioning}
@@ -20,6 +22,29 @@
 
 %Seiteninhalt
 \paragraph{Aufgabe H7}
+Der Aufruf der Methode \verb|check| gibt für einen regulären Ausdruck (\verb|RA|) $R$ zurück, ob dieser nur eine endliche Anzahl an Wörtern beschreibt. Folgender Algorithmus kann dies mit einer Worst-Case Laufzeit von $O(n)$ entscheiden, wobei $n$ die Anzahl der Teilausdrücke, die R aufbauen, ist:
+\begin{lstlisting}[escapeinside=`']
+bool check(RA R) {
+	if(R `$\in \Sigma$') return true;
+	if(R is A + B || R is AB) return check(A) && check(B);
+	if(R is `$A^{*}$' || R is `$A^{+}$') return isEmpty(A);
+}
 
+bool isEmpty(RA R) {
+	if(R is `$\epsilon$') return true;
+	if(R `$\in \Sigma \setminus \{\epsilon\}$') return false;
+	if(R is A + B `$\mid\mid$' R is AB) return isEmpty(A) && isEmpty(B);
+}
+\end{lstlisting}
+$A$ und $B$ sind hier reguläre Ausdrücke, die hier $R$ darstellen können.
+
+\paragraph{Aufgabe H8}
+\begin{enumerate}[label=\alph*)]
+\item 	Die Äquivalenzklassen sind $[a]_{\equiv _{L}} = \{a,b\}^{*}$ und $[c]_{\equiv _{L}} = \{a,b\}^{*}c\{a,b,c\}^{*}$. Erstere beschreibt alle Worte (keines aus L), bei denen man nur genau ein $c$ hinten anhängen kann, sodass sie immer noch in der Sprache $L$ sind. Die zweite Äquivalenzklasse beschreibt alle Worte (auch alle aus L), die mindestens ein $c$ haben, wodurch man nichts an das Wort anhängen kann, sodass es in der Sprache ist. Beide Äquivalenzklassen vereinigt bilden $\Sigma^{*}$:
+\[[a]_{\equiv _{L}} \cup [c]_{\equiv _{L}} = \{a,b\}^{*} \cup \{a,b\}^{*}c\{a,b,c\}^{*} = \{a,b,c\}^{*} = \Sigma^{*}\]
+Das leere Wort ist in $[a]_{\equiv _{L}}$ beinhaltet sowie alle Wörter, die kein $c$ enthalten. $[c]_{\equiv _{L}}$ beinhaltet alle Wörter, die mind. ein $c$ enthalten, an egal welcher Stelle. Die Vereinigung beider stellt also $\Sigma^{*}$ dar.
+
+\item	
+\end{enumerate}
 
 \end{document}
