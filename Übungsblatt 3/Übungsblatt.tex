@@ -40,10 +40,10 @@ $A$ und $B$ sind hier reguläre Ausdrücke, die hier $R$ darstellen können.
 
 \paragraph{Aufgabe H8}
 \begin{enumerate}[label=\alph*)]
-\item 	Die Äquivalenzklassen sind $[a]_{\equiv _{L}} = \{a,b\}^{*}$ und $[c]_{\equiv _{L}} = \{a,b\}^{*}c\{a,b,c\}^{*}$. Erstere beschreibt alle Worte (keines aus L), bei denen man nur genau ein $c$ hinten anhängen kann, sodass sie immer noch in der Sprache $L$ sind. Die zweite Äquivalenzklasse beschreibt alle Worte (auch alle aus L), die mindestens ein $c$ haben, wodurch man nichts an das Wort anhängen kann, sodass es in der Sprache ist. Beide Äquivalenzklassen vereinigt bilden $\Sigma^{*}$:
-\[[a]_{\equiv _{L}} \cup [c]_{\equiv _{L}} = \{a,b\}^{*} \cup \{a,b\}^{*}c\{a,b,c\}^{*} = \{a,b,c\}^{*} = \Sigma^{*}\]
-Das leere Wort ist in $[a]_{\equiv _{L}}$ beinhaltet sowie alle Wörter, die kein $c$ enthalten. $[c]_{\equiv _{L}}$ beinhaltet alle Wörter, die mind. ein $c$ enthalten, an egal welcher Stelle. Die Vereinigung beider stellt also $\Sigma^{*}$ dar. 
-\\Damit sind diese beiden Äquivalenzklassen die einzigen bzgl. der Myhill-Nerode Relation.
+\item 	Die Äquivalenzklassen sind $[a]_{\equiv _{L}} = \{a,b\}^{*}$,$[c]_{\equiv _{L}} = \{a,b\}^{*}c$ und $[ca]_{\equiv _{L}} = \{a,b\}^{*}c\{a,b,c\}^{*}$. Erstere beschreibt alle Worte (keines aus L), bei denen man nur Worte der Form $\{a,b\}^{*}c$ hinten anhängen kann, sodass sie immer noch in der Sprache $L$ sind. Die zweite Äquivalenzklasse beinhaltet alle Worte der Sprache $L$. Bei denen kann man nur $\epsilon$ anfügen, sodass sie in der Sprache sind. Letztere Äquivalenzklasse beschreibt alle Worte (auch alle aus L), die mindestens ein $c$ haben, wodurch man nichts an das Wort anhängen kann, sodass es in der Sprache ist. Alle drei Äquivalenzklassen vereinigt bilden $\Sigma^{*}$:
+\[[a]_{\equiv _{L}} \cup [c]_{\equiv _{L}} \cup [ca]_{\equiv _{L}} = \{a,b\}^{*} \cup \{a,b\}^{*}c \cup \{a,b\}^{*}c\{a,b,c\}^{*} = \{a,b,c\}^{*} = \Sigma^{*}\]
+Das leere Wort ist in $[a]_{\equiv _{L}}$ beinhaltet sowie alle Wörter, die kein $c$ enthalten. $[c]_{\equiv _{L}}$ beinhaltet alle Wörter, die mind. ein $c$ enthalten, an egal welcher Stelle. Die Vereinigung der drei Äquivalenzklassen stellt also $\Sigma^{*}$ dar. 
+\\Damit sind diese Äquivalenzklassen die einzigen bzgl. der Myhill-Nerode Relation.
 
 \item	
 \end{enumerate}
