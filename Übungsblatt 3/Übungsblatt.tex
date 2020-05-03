@@ -34,6 +34,7 @@ bool isEmpty(RA R) {
 	if(R is `$\epsilon$') return true;
 	if(R `$\in \Sigma \setminus \{\epsilon\}$') return false;
 	if(R is A + B `$\mid\mid$' R is AB) return isEmpty(A) && isEmpty(B);
+	if(R is `$A^{*}$' || R is `$A^{+}$') return isEmpty(A);
 }
 \end{lstlisting}
 $A$ und $B$ sind hier reguläre Ausdrücke, die hier $R$ darstellen können.
@@ -45,7 +46,11 @@ $A$ und $B$ sind hier reguläre Ausdrücke, die hier $R$ darstellen können.
 Das leere Wort ist in $[a]_{\equiv _{L}}$ beinhaltet sowie alle Wörter, die kein $c$ enthalten. $[c]_{\equiv _{L}}$ beinhaltet alle Wörter, die mind. ein $c$ enthalten, an egal welcher Stelle. Die Vereinigung der drei Äquivalenzklassen stellt also $\Sigma^{*}$ dar. 
 \\Damit sind diese Äquivalenzklassen die einzigen bzgl. der Myhill-Nerode Relation.
 
-\item	
+\item	Aus der Vorlesung wissen wir, dass
+\begin{center}
+$\equiv _{L}$ hat endlichen Index $\Leftrightarrow$ L ist regulär
+\end{center}gilt. Da es keinen Automaten mit einer endlichen Anzahl an Zuständen geben kann, der L beschreibt, es also nicht einen DFA zu L geben kann, ist L nicht regulär. Dies bedeutet, es gibt eine unendliche Anzahl an Äquivalenzklassen bezüglich der Myhill-Nerode-Relatiion $\equiv _{L}$.\\
+Es kann keinen Automaten mit endlicher Anzahl an Zuständen geben, da die Wortlänge aller Wörter aus L quadratisch ansteigend ist. Somit bräuchte man, um die Worte aus L zu überprüfen, für jedes Wort mehr Zustände als das nächst kleinere. Da L auf jeden Fall unendlich viele Wörter enthält, gibt es bei einem gegebenen Automaten auch unendlich viele Zustände, und somit keinen DFA.
 \end{enumerate}
 
 \paragraph{Aufgabe H9}
