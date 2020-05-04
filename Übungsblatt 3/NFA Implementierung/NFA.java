@@ -110,17 +110,17 @@ public class NFA<S,A> {
 		 }
 	 }
 
-	 public static List<String> intoList(String s) {
-		 List<String> list = new ArrayList<>();
+	 public static List<Character> intoList(String s) {
+		 List<Character> list = new ArrayList<>();
 		 for(char c : s.toCharArray()) {
-			 list.add(String.valueOf(c));
+			 list.add(c);
 		 }
 		 return list;
 	 }
 
 	 public static NFA parseNFA() {
-		 NFA<Integer, String> nfa = new NFA<>(null);
-		 HashMap<Integer ,HashMap<String ,HashSet<Integer>>> data = new HashMap<>();
+		 NFA<Integer, Character> nfa = new NFA<>(null);
+		 HashMap<Integer ,HashMap<Character ,HashSet<Integer>>> data = new HashMap<>();
 
 		 //Reading from file
 		 try {
@@ -133,19 +133,20 @@ public class NFA<S,A> {
 				 String[] splits = line.split(" ");
 
 				 int q = Integer.parseInt(splits[0]), p = Integer.parseInt(splits[2]);
+				 char a = splits[1].charAt(0);
 
 				 // Adding the q State
 				 if(data.containsKey(q)) {
-					 if(!data.get(q).containsKey(splits[1])) {
-					 	data.get(q).put(splits[1], new HashSet<Integer>());
+					 if(!data.get(q).containsKey(a)) {
+					 	data.get(q).put(a, new HashSet<Integer>());
 					}
 				}else {
-					data.put(q, new HashMap<String, HashSet<Integer>>());
-					data.get(q).put(splits[1], new HashSet<Integer>());
+					data.put(q, new HashMap<Character, HashSet<Integer>>());
+					data.get(q).put(a, new HashSet<Integer>());
 				}
 
 				// Adding Transition
-				data.get(q).get(splits[1]).add(p);
+				data.get(q).get(a).add(p);
 			 }
 
 			 nfa.setData(data);
