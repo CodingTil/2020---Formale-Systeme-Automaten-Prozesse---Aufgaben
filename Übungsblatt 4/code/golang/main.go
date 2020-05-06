@@ -45,5 +45,5 @@ func main() {
 
 	avg /= 20
 
-	fmt.Printf("Average Time: %v\n", avg)
+	fmt.Printf("Average Time (ms): %v\n", avg)
 }
