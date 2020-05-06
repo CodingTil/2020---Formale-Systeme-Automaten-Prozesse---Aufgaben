@@ -37,6 +37,6 @@ public class Main {
 
         avg /= 20;
 
-        System.out.println("Average Time (ms); " + avg);
+        System.out.println("Average Time (ms): " + avg);
     }
 }

@@ -48,9 +48,7 @@ public class NFA<S,A> {
 	 * @return eine Menge aller erreichbaren Zustände
 	 */
 	 public Set<S> simulate(S q, List<A> w) {
-		 long startTime = System.nanoTime();
-
-		 Set<S> states = new HashSet<S>();
+		Set<S> states = new HashSet<S>();
 		 states.add(q);
 
 		 for(A a : w) {
@@ -62,9 +60,6 @@ public class NFA<S,A> {
 			 }
 			 states = newStates;
 		 }
-
-		 long estimatedTime = System.nanoTime() - startTime;
-		 System.out.println("nanoseconds: " + estimatedTime);
 
 		 return states;
 	 }
@@ -78,36 +73,42 @@ public class NFA<S,A> {
 	 }
 
 	 public static void main(String[] args) {
-		 // Important for files
-		 int num_words = 4;
+		NFA nfa = createRegexNFA();
+		
+        boolean[] results = new boolean[20];
+        long[] time = new long[20];
 
-		 // Beispiel auf dem Blatt
-		 if(args.length == 0) {
-			 Set<Integer> states = new HashSet<Integer>();
-			 states.add(1); states.add(2); states.add(3); states.add(4);
-			 NFA<Integer, String> M = new NFA<Integer, String>(states);
-			 M.addTransition(1, "rechts", 2); M.addTransition(1, "runter", 3);
-			 M.addTransition(2, "links", 1); M.addTransition(2, "runter", 4);
-			 M.addTransition(3, "rechts", 4); M.addTransition(3, "hoch", 1);
-			 M.addTransition(4, "links", 3); M.addTransition(4, "hoch", 2);
-			 List<String> eingabe = new LinkedList<String>();
-			 eingabe.add("rechts"); eingabe.add("runter"); eingabe.add("links");
-			 Set<Integer> reachable = M.simulate(1, eingabe);
-			 System.out.println(reachable);
-		 }
+		for(int i = 1; i <= 20; i++) {
+		   String text = "1,2,3,4,5,6,7,8,9,10,11,12";
+		   for(int j = 0; j < i; j++) {
+			   text += ",1";
+		   }
+		   List<Character> list = intoList(text);
+		   long start = System.nanoTime();
+		   Set s = nfa.simulate(0, list);
+		   long end = System.nanoTime();
+		   long elapsed = (end - start);
+		   boolean result = false;
+		   if(s.size() == 1 && s.contains(14)) result = true;
+		   results[i-1] = result;
+		   time[i-1] = elapsed;
+	   }
 
-		 // Langer NFA
-		 else {
-			 NFA nfa = parseNFA();
-			 if(args[0].equals("sheet")) {
-				 System.out.println(nfa.simulate(7, intoList("abababbaa")));
-			 }else if(args[0].equals("file")) {
-				 String[] words = loadWords(num_words);
-				 for(int i = 0; i < num_words; i++) {
-					 System.out.println(nfa.simulate(7, intoList(words[i])));
-				 }
-			 }
-		 }
+		long avg = 0;
+		System.out.println("Index | Result | Duration (ns)");
+		for(int i = 01; i <= 20; i++) {
+			String text = i + "    ";
+			if(i < 10) text += " ";
+			text += "| " + results[i-1] + "  ";
+			if(results[i-1] == true) text += " ";
+			text += "| " + time[i-1];
+			System.out.println(text);
+			avg += time[i-1];
+		}
+
+		avg /= 20;
+
+		System.out.println("Average Time (ns): " + avg);
 	 }
 
 	 public static List<Character> intoList(String s) {
@@ -118,55 +119,19 @@ public class NFA<S,A> {
 		 return list;
 	 }
 
-	 public static NFA parseNFA() {
-		 NFA<Integer, Character> nfa = new NFA<>(null);
-		 HashMap<Integer ,HashMap<Character ,HashSet<Integer>>> data = new HashMap<>();
+	public static NFA<Integer, Character> createRegexNFA() {
+		Set states = new HashSet<>(Arrays.asList(new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14}));
+		NFA<Integer, Character> nfa = new NFA<Integer,Character>(states);
 
-		 //Reading from file
-		 try {
-			 FileInputStream fis = new FileInputStream("resources\\2020_H09.trans");
-			 Scanner sc = new Scanner(fis);
-			 String line = "";
-			 while(sc.hasNextLine()) {
-				 line = sc.nextLine();
-				 if(line == "") break;
-				 String[] splits = line.split(" ");
+		int q;
+		for(q = 0; q < 13; q++) {
+			for(int i = 0; i <= 9; i++) {
+				nfa.addTransition(q, (char)(i+'0'), q);
+			}
+			nfa.addTransition(q, ',', q+1);
+		}
+		nfa.addTransition(13, 'z', 14);
 
-				 int q = Integer.parseInt(splits[0]), p = Integer.parseInt(splits[2]);
-				 char a = splits[1].charAt(0);
-
-				 // Adding the q State
-				 if(data.containsKey(q)) {
-					 if(!data.get(q).containsKey(a)) {
-					 	data.get(q).put(a, new HashSet<Integer>());
-					}
-				}else {
-					data.put(q, new HashMap<Character, HashSet<Integer>>());
-					data.get(q).put(a, new HashSet<Integer>());
-				}
-
-				// Adding Transition
-				data.get(q).get(a).add(p);
-			 }
-
-			 nfa.setData(data);
-		 }catch(FileNotFoundException e) {
-			 e.printStackTrace();
-		 }
-		 return nfa;
-	 }
-
-	 public static String[] loadWords(int num_words) {
-		 String[] words = new String[num_words];
-		 try {
-		 	FileInputStream fis = new FileInputStream("resources\\2020_H09_input");
-   		 	Scanner sc = new Scanner(fis);
-   		 	for(int i = 0; i < num_words; i++) {
-   			 	words[i] = sc.nextLine();
-   		 	}
-		 }catch(FileNotFoundException e) {
-			 e.printStackTrace();
-		 }
-		 return words;
-	 }
+		return nfa;
+	}
 }
