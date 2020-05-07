@@ -10,6 +10,7 @@
 \usepackage{enumitem}		  %Enumerate
 \usepackage{listings}		  %Code snippets
 \usepackage{amsmath}
+\usepackage[normalem]{ulem}
 
 \usetikzlibrary{arrows, automata, positioning}
 \pagestyle{scrheadings}
@@ -56,7 +57,156 @@
 ;
 \end{tikzpicture}
 \end{center}
-TODO: Minimierungstabelle und minimaler DFA.
+
+%Verschönert
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(1)											{$\{1\}$};
+\node[state]			(15) 	[above right=1cm and 0.5cm of 1]	{$\{1,5\}$};
+\node[state,accepting]	(8) 	[below right=1cm and 0.5cm of 1]	{$\{8\}$};
+\node[state,accepting]	(48) 	[below right=1cm and 0.5cm of 15]	{$\{4,8\}$};
+\node[state]			(3) 	[below right=1cm and 0.5cm of 48]	{$\{3\}$};
+\node[state,accepting]	(7) 	[above right=1cm and 0.5cm of 3]	{$\{7\}$};
+\node[state,accepting]	(26) 	[right=0.75cm of 7]					{$\{2,6\}$};
+\node[state,accepting]	(46) 	[right=0.75cm of 26]				{$\{4,6\}$};
+\node[state]			(4) 	[right=0.75cm of 46]				{$\{4\}$};
+\node[state]			(0) 	[above right=1cm and 0.5cm of 48]	{$\O$};
+
+\path 	(1) 	edge [above left]			node {a} (15)
+				edge [below left] 			node {b} (8)
+		(15) 	edge [loop above=20, above] node {a} (15)
+				edge [above right] 			node {b} (48)
+		(8) 	edge [bend right=45, right] node {a} (0)
+				edge [bend right=30, below] node {b} (3)
+		(48) 	edge [left] 				node {a} (0)
+				edge [below] 				node {b} (3)
+		(3) 	edge [right]			 	node {a} (7)
+				edge [bend right=20, below]	node {b} (4)
+		(7) 	edge [right] 				node {a} (0)
+				edge [below] 				node {b} (26)
+		(26) 	edge [below]		 		node {a} (46)
+				edge [bend right=10, above]	node {b} (0)
+		(46) 	edge [below] 				node {a} (4)
+				edge [bend right=20, above]	node {b} (0)
+		(4) 	edge [bend right=30, above] node {a,b} (0)
+		(0) 	edge [loop above=20, above]	node {a,b} (0)
+;
+\end{tikzpicture}
+\\ \ \\
+
+Erstelle Zustandspaartabelle und streiche alle Paare, bei denen der eine Zustand Endzustand ist und der andere nicht, da diese Paare eindeutig unterscheidbar sind. Die Zellen unter der der Diagonalen ignorieren wir, da sie symmetrisch sind.\\ \ \\
+\begin{tabular}[h]{l|c|c|c|c|c|c|c|c|c|c}
+ 	&\{1\} &\{1,5\} &\{2,6\} &\{3\} &\{4\} &\{4,6\} &\{4,8\} &\{7\} &\{8\} &$\emptyset$\\
+\hline
+ \{1\} & $\cdot$ & &X& & &X&X&X&X& \\
+\hline
+\{1,5\}& & $\cdot$ &X& & &X&X&X&X& \\
+\hline
+\{2,6\}& & & $\cdot$ &X&X& & & & &X\\
+\hline
+ \{3\} & & & & $\cdot$ & &X&X&X&X& \\
+\hline
+ \{4\} & & & & & $\cdot$ &X&X&X&X& \\
+\hline
+\{4,6\}& & & & & & $\cdot$ & & & &X\\
+\hline
+\{4,8\}& & & & & & & $\cdot$ & & &X\\
+\hline
+ \{7\} & & & & & & & & $\cdot$ & &X\\
+\hline
+ \{8\} & & & & & & & & & $\cdot$ &X\\
+\hline
+$\emptyset$& & & & & & & & & & $\cdot$\\
+\end{tabular}
+\\ \ \\
+
+Erstelle nun Übergangstabelle mit allen Paaren die noch nicht als unterscheidbar bekannt sind und streiche alle Zustandspaare die für a oder b auf einem unterscheidbaren Zustand landen.
+\\ \ \\
+\begin{tabular}{ll|ll|ll}
+$Z_{1}$&$Z_{2}$&a&&b&\\
+\hline
+(\{1\}, & \{1,5\}) & (\{1,5\}, & \{1,5\}) & (\{8\}, & \{4,8\})\\
+{(\{1\},} & \{3\}) & (\{1,5\}, & \{7\}) & \\
+(\{1\}, & \{4\})   & (\{1,5\}, & \{$\emptyset$\}) & (\{8\}, & \{$\emptyset$\})\\
+(\{1\}, & \{$\emptyset$\}) & (\{1,5\}, & \{$\emptyset$\}) & (\{8\}, & \{$\emptyset$\})\\
+(\{1,5\}, & \{3\}) & (\{1,5\}, & \{7\}) & \\
+(\{1,5\}, & \{4\}) & (\{1,5\}, & \{$\emptyset$\}) & (\{4,8\}, & \{$\emptyset$\})\\
+(\{1,5\}, & \{$\emptyset$\}) & (\{1,5\}, & \{$\emptyset$\}) & (\{4,8\}, & \{$\emptyset$\})\\
+(\{2,6\}, & \{4,6\}) & (\{4,6\}, & \{4\}) & \\
+(\{2,6\}, & \{4,8\}) & (\{4,6\}, & \{$\emptyset$\}) & \\
+(\{2,6\}, & \{7\}) & (\{4,6\}, & \{$\emptyset$\}) & \\
+(\{2,6\}, & \{8\}) & (\{4,6\}, & \{$\emptyset$\}) & \\
+(\{3\}, & \{4\}) & (\{7\}, & \{$\emptyset$\}) & \\
+(\{3\}, & \{$\emptyset$\}) & (\{7\}, & \{$\emptyset$\}) & \\
+(\{4\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{$\emptyset$\})\\
+(\{4,6\}, & \{4,8\}) & (\{4\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{3\})\\
+(\{4,6\}, & \{7\}) & (\{4\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{2,6\})\\
+(\{4,6\}, & \{8\}) & (\{4\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{3\})\\
+(\{4,8\}, & \{7\}) & (\{$\emptyset$\}, & \{$\emptyset$\}) & (\{3\}, & \{2,6\})\\
+(\{4,8\}, & \{8\}) & (\{$\emptyset$\}, & \{$\emptyset$\}) & (\{3\}, & \{3\})\\
+(\{7\}, & \{8\}) & (\{$\emptyset$\}, & \{$\emptyset$\}) & (\{2,6\}, & \{3\})\\
+\end{tabular}
+\\ \ \\
+Somit sind die ununterscheidbaren Zustandspaare:
+\\ \ \\
+\begin{tabular}{ll|ll|ll}
+$Z_{1}$&$Z_{2}$&a&&b&\\
+\hline
+(\{1\}, & \{1,5\}) & (\{1,5\}, & \{1,5\}) & (\{8\}, & \{4,8\})\\
+(\{4\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{$\emptyset$\}) & (\{$\emptyset$\}, & \{$\emptyset$\})\\
+(\{4,8\}, & \{8\}) & (\{$\emptyset$\}, & \{$\emptyset$\}) & (\{3\}, & \{3\})\\
+\end{tabular}
+\\ \ \\
+und es ergibt sich die finale Zustandspaartabelle, in der o für ein ununterscheidbares Zustandspaar steht: 
+\\ \ \\
+\begin{tabular}[h]{l|c|c|c|c|c|c|c|c|c|c}
+ 	&\{1\} &\{1,5\} &\{2,6\} &\{3\} &\{4\} &\{4,6\} &\{4,8\} &\{7\} &\{8\} &$\emptyset$\\
+\hline
+ \{1\} & $\cdot$ &o&X&X&X&X&X&X&X&X\\
+\hline
+\{1,5\}& & $\cdot$ &X&X&X&X&X&X&X&X\\
+\hline
+\{2,6\}& & & $\cdot$ &X&X&X&X&X&X&X\\
+\hline
+ \{3\} & & & & $\cdot$ &X&X&X&X&X&X\\
+\hline
+ \{4\} & & & & & $\cdot$ &X&X&X&X&o\\
+\hline
+\{4,6\}& & & & & & $\cdot$ &X&X&X&X\\
+\hline
+\{4,8\}& & & & & & & $\cdot$ &X&o&X\\
+\hline
+ \{7\} & & & & & & & & $\cdot$ &X&X\\
+\hline
+ \{8\} & & & & & & & & & $\cdot$ &X\\
+\hline
+$\emptyset$& & & & & & & & & & $\cdot$\\
+\end{tabular}
+\\ \ \\
+Erstelle nun minimalen deterministischen Automaten (mit \{\{1\},\{1,5\}\}=\{1,5\}, \{\{8\},\{4,8\}\}=\{4,8\} und \{\{4\},\{$\emptyset$\}\}=\{4\}):
+\\ \ \\
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(15)						{$\{1,5\}$};
+\node[state,accepting]	(48) 	[right=1cm of 15]	{$\{4,8\}$};
+\node[state]			(3) 	[right=1cm of 48]	{$\{3\}$};
+\node[state,accepting]	(7) 	[right=1cm of 3]	{$\{7\}$};
+\node[state,accepting]	(26) 	[right=1cm of 7]	{$\{2,6\}$};
+\node[state,accepting]	(46) 	[right=1cm of 26]	{$\{4,6\}$};
+\node[state]			(4) 	[below=1cm of 48]	{$\{4\}$};
+s
+\path 	(15) 	edge [loop above=20, above] node {a} (15)
+				edge [above]	 			node {b} (48)
+		(48) 	edge [left] 				node {a} (4)
+				edge [above] 				node {b} (3)
+		(3) 	edge [above]			 	node {a} (7)
+				edge [bend left=10, above]	node {b} (4)
+		(7) 	edge [bend left=15, above]	node {a} (4)
+				edge [above] 				node {b} (26)
+		(26) 	edge [above]		 		node {a} (46)
+				edge [bend left=20, above]	node {b} (4)
+		(46) 	edge [bend left=25, above]	node {a,b} (4)
+		(4) 	edge [loop left=20, left] 	node {a,b} (4)
+;
+\end{tikzpicture}
 
 \paragraph{Aufgabe H11}
 \begin{enumerate}[label=\alph*)]
