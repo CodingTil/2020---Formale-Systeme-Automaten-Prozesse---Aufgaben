@@ -7,6 +7,8 @@
 \usepackage{listings}         %Codeansicht
 \usepackage{scrlayer-scrpage} %Seitenkopf
 \usepackage{tikz}             %tikz
+\usepackage{enumitem}		  %Enumerate
+\usepackage{listings}		  %Code snippets
 \usepackage{amsmath}
 
 \usetikzlibrary{arrows, automata, positioning}
@@ -20,9 +22,101 @@
 
 %Seiteninhalt
 \paragraph{Aufgabe H10}
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(1)											{$\{1\}$};
+\node[state]			(15) 	[right=2cm of 1]					{$\{1,5\}$};
+\node[state,accepting]	(8) 	[above=2cm of 1]					{$\{8\}$};
+\node[state,accepting]	(48) 	[right=2cm of 8]					{$\{4,8\}$};
+\node[state]			(3) 	[right=2cm of 48]					{$\{3\}$};
+\node[state,accepting]	(7) 	[below=2cm of 3]					{$\{7\}$};
+\node[state,accepting]	(26) 	[right=2cm of 7]					{$\{2,6\}$};
+\node[state,accepting]	(46) 	[above=2cm of 26]					{$\{4,6\}$};
+\node[state]			(4) 	[above=2cm of 3]					{$\{4\}$};
+\node[state]			(0) 	[above=2cm of 4]						{$\O$};
+
+\path 	(1) 	edge [above] 				node {a} (15)
+				edge [left] 				node {b} (8)
+		(15) 	edge [loop right=20, right] node {a} (15)
+				edge [left] 				node {b} (48)
+		(8) 	edge [left] 				node {a} (0)
+				edge [bend right=30, below] node {b} (3)
+		(48) 	edge [left] 				node {a} (0)
+				edge [below] 				node {b} (3)
+		(3) 	edge [right]			 	node {a} (7)
+				edge [right] 				node {b} (4)
+		(7) 	edge [bend right=100,right]	node {a} (0)
+				edge [below] 				node {b} (26)
+		(26) 	edge [left]			 		node {a} (46)
+				edge [bend right=100,right] node {b} (0)
+		(46) 	edge [right] 				node {a} (4)
+				edge [bend right=100,above]	node {b} (0)
+		(4) 	edge [below]				node {a,b} (0)
+		(0) 	edge [loop above=20, above]	node {a,b} (0)
+;
+\end{tikzpicture}
+\end{center}
+TODO: Minimierungstabelle und minimaler DFA.
 
 \paragraph{Aufgabe H11}
+\begin{enumerate}[label=\alph*)]
+\item $L_1=\{a^{n}|\sqrt{n}\in \mathbb{N}, n>100\}=\{a^{121}, a^{144}, a^{169}, ...\}$\\
+Sei $n\in\mathbb{N}, \sqrt{n}\in\mathbb{N}, n>100$ gegeben.
+Setzte $w\coloneqq  a^{n}$.\\
+Dann kann man $w$ in $x,y,z$ zerlegen mit $y\neq \epsilon, \vert xy \vert \leq n, w=xyz$.\\
+Nach Pumping-Lemma muss dann für alle $i \in \mathbb{N}$ gelten: $x y^{i} z \in L_1$\\
+Setze $i=2$, betrachte also $x y^{2} z$. Definiere $m\coloneqq \sqrt{n}, m \in \mathbb{N}$.:
+\[m^2=n=\vert xyz \vert < \vert x y^2 z \vert = \vert xyz \vert + \vert y \vert \leq m^2 + m\]
+Das nächstgrößere Wort aus $L_1$ nach $w$ hat aber die Länge
+\[(\sqrt{n}+1)^2=(m+1)^2=m^2+2m+1\]
+Da $\vert xy^2z \vert \leq m^2+m \leq m^2+2m+1$, ist $xy^2z \not\in L_1$.\\
+Damit gilt das Pumping-Lemma nicht, wodurch $L_1$ keine reguläre Sprache ist.
+
+\item TODO
+\end{enumerate}
 
 \paragraph{Aufgabe H12}
+\begin{center}
+\begin{tabular}{ |p{3cm}||p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Regex Matcher} \\
+ \hline
+ Language & GoLang & Java & Java\\
+ \hline
+ Algorithm & NFA & NFA & backtracking\\
+ \hline
+ 1	&	$479 ms$	&	$139 ms$	&	$8 ms$\\
+ 2	&	$130 ms$	&	$116 ms$	&	$4 ms$\\
+ 3	&	$839 ms$	&	$145 ms$	&	$8 ms$\\
+ 4	&	$21 ms$	&	$124 ms$	&	$15 ms$\\
+ 5	&	$23 ms$	&	$162 ms$	&	$30 ms$\\
+ 6	&	$101 ms$	&	$128 ms$	&	$60 ms$\\
+ 7	&	$81 ms$	&	$136 ms$	&	$90 ms$\\
+ 8	&	$29 ms$	&	$173 ms$	&	$49 ms$\\
+ 9	&	$31 ms$	&	$164 ms$	&	$96 ms$\\
+ 10	&	$54 ms$	&	$169 ms$	&	$171 ms$\\
+ 11	&	$35 ms$	&	$146 ms$	&	$197 ms$\\
+ 12	&	$35 ms$	&	$151 ms$	&	$373 ms$\\
+ 13	&	$56 ms$	&	$362 ms$	&	$668 ms$\\
+ 14	&	$40 ms$	&	$179 ms$	&	$1253 ms$\\
+ 15	&	$42 ms$	&	$147 ms$	&	$2109 ms$\\
+ 16	&	$43 ms$	&	$193 ms$	&	$3648 ms$\\
+ 17	&	$88 ms$	&	$121 ms$	&	$6160 ms$\\
+ 18	&	$95 ms$	&	$120 ms$	&	$10304 ms$\\
+ 19	&	$76 ms$	&	$110 ms$	&	$16812 ms$\\
+ 20	&	$866 ms$	&	$72 ms$	&	$27152 ms$\\
+ \hline
+ Average Time	&	$158 ms$	&	$152 ms$	&	$3460 ms$\\
+ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*)]
+\item Man kann erkennen, dass GoLang, welce NFAs verwendet, in etwa für alle $i \in \{1...20\}$ in etwa gleich schnell arbeitet. Die Ausreißer lassen sich beisielsweise durch Unterbrechung des Programms durch andere Programm erklären.\\
+Java hingegen benutzt backtracking. Er versucht also jedes Zeichen des Inputs mit dem Regex zu matchen. Falls dies nicht geht, wird Java also die letzten durchläufe zurückgehen und einen anderen Weg einschlagen. Für kleine Eingaben ($i \in \{1...5\}$) ist dies sehr schnell, aber mit wachsendem Input wird es exponentiell aufwendiger.
+
+\item Die Unterschiede in der Laufzeit kommen daher, dass beide Sprachen verschiedene Ansätze haben, um herauszufinden, ob ein String einem Regex matcht. Wie in $a)$ beschrieben, benutzt golang NFA und ist daher für alle Eingaben hier relativ schnell. Java benutzt standartmäßig backtracking, was für wachsenden Input exponentiell länger zu brauchen scheint. Backtracking versucht quasi, die Eingabe in einen Baum aufzuteilen (nach dem gegebenen Regex). Wenn ein Zweig fehlschlät, wird in einem anderen Zweig weitergearbeitet.
+
+\item Die erste Java-Spalte in der Tabelle ist die Umsetzung des Regex mithilfe der NFA-Implementierung von letzter Woche. Damit benutzt sie wie GoLang auch einen NFA. Man stellt fest, dass hier für alle $i \in \{1...20\}$ das Programm auch etwa gleich schnell arbeitet, doch ca. $100 ms$ langsamer als die GoLang Implementierung. Dies könnte verschiedene Gründe haben, beispielsweise dass GoLang direkt zu Byte-Code compiled wird, Java nicht. Eventuell kann unsere Java NFA-Implementierung auch noch optimiert werden, wodurch auch Laufzeitunterschiede zu erklären sind.
+\end{enumerate}
 
 \end{document}
