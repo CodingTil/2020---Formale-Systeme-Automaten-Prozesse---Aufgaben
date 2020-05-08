@@ -30,40 +30,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Aufgabe H10}
 \begin{center}
-\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-\node[initial,state]	(1)											{$\{1\}$};
-\node[state]			(15) 	[right=2cm of 1]					{$\{1,5\}$};
-\node[state,accepting]	(8) 	[above=2cm of 1]					{$\{8\}$};
-\node[state,accepting]	(48) 	[right=2cm of 8]					{$\{4,8\}$};
-\node[state]			(3) 	[right=2cm of 48]					{$\{3\}$};
-\node[state,accepting]	(7) 	[below=2cm of 3]					{$\{7\}$};
-\node[state,accepting]	(26) 	[right=2cm of 7]					{$\{2,6\}$};
-\node[state,accepting]	(46) 	[above=2cm of 26]					{$\{4,6\}$};
-\node[state]			(4) 	[above=2cm of 3]					{$\{4\}$};
-\node[state]			(0) 	[above=2cm of 4]						{$\O$};
-
-\path 	(1) 	edge [above] 				node {a} (15)
-				edge [left] 				node {b} (8)
-		(15) 	edge [loop right=20, right] node {a} (15)
-				edge [left] 				node {b} (48)
-		(8) 	edge [left] 				node {a} (0)
-				edge [bend right=30, below] node {b} (3)
-		(48) 	edge [left] 				node {a} (0)
-				edge [below] 				node {b} (3)
-		(3) 	edge [right]			 	node {a} (7)
-				edge [right] 				node {b} (4)
-		(7) 	edge [bend right=100,right]	node {a} (0)
-				edge [below] 				node {b} (26)
-		(26) 	edge [left]			 		node {a} (46)
-				edge [bend right=100,right] node {b} (0)
-		(46) 	edge [right] 				node {a} (4)
-				edge [bend right=100,above]	node {b} (0)
-		(4) 	edge [below]				node {a,b} (0)
-		(0) 	edge [loop above=20, above]	node {a,b} (0)
-;
-\end{tikzpicture}
-\end{center}
-
 %Verschönert
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
 \node[initial,state]	(1)											{$\{1\}$};
@@ -97,7 +63,8 @@
 		(0) 	edge [loop above=20, above]	node {a,b} (0)
 ;
 \end{tikzpicture}
-\\ \ \\
+\end{center}
+
 
 Erstelle Zustandspaartabelle und streiche alle Paare, bei denen der eine Zustand Endzustand ist und der andere nicht, da diese Paare eindeutig unterscheidbar sind. Die Zellen unter der der Diagonalen ignorieren wir, da sie symmetrisch sind.\\ \ \\
 \begin{tabular}[h]{l|c|c|c|c|c|c|c|c|c|c}
@@ -251,9 +218,9 @@ Damit gilt das Pumping-Lemma nicht, wodurch $L_1$ keine reguläre Sprache ist.
  \hline
  Algorithm & NFA & NFA & backtracking\\
  \hline
- 1	&	$479 ms$	&	$139 ms$	&	$8 ms$\\
- 2	&	$130 ms$	&	$116 ms$	&	$4 ms$\\
- 3	&	$839 ms$	&	$145 ms$	&	$8 ms$\\
+ 1	&	$79 ms$	&	$139 ms$	&	$8 ms$\\
+ 2	&	$132 ms$	&	$116 ms$	&	$4 ms$\\
+ 3	&	$153 ms$	&	$145 ms$	&	$8 ms$\\
  4	&	$21 ms$	&	$124 ms$	&	$15 ms$\\
  5	&	$23 ms$	&	$162 ms$	&	$30 ms$\\
  6	&	$101 ms$	&	$128 ms$	&	$60 ms$\\
@@ -270,9 +237,9 @@ Damit gilt das Pumping-Lemma nicht, wodurch $L_1$ keine reguläre Sprache ist.
  17	&	$88 ms$	&	$121 ms$	&	$6160 ms$\\
  18	&	$95 ms$	&	$120 ms$	&	$10304 ms$\\
  19	&	$76 ms$	&	$110 ms$	&	$16812 ms$\\
- 20	&	$866 ms$	&	$72 ms$	&	$27152 ms$\\
+ 20	&	$163 ms$	&	$72 ms$	&	$27152 ms$\\
  \hline
- Average Time	&	$158 ms$	&	$152 ms$	&	$3460 ms$\\
+ Average Time	&	$68 ms$	&	$152 ms$	&	$3460 ms$\\
  \hline
 \end{tabular}
 \end{center}
