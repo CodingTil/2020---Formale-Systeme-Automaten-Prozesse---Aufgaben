@@ -188,19 +188,13 @@ s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Aufgabe H11}
 \begin{enumerate}[label=\alph*)]
-\item $L_1=\{a^{n}|\sqrt{n}\in \mathbb{N}, n>100\}=\{a^{121}, a^{144}, a^{169}, ...\}$\\
-Sei $n\in\mathbb{N}, \sqrt{n}\in\mathbb{N}, n>100$ gegeben.
-Setzte $w\coloneqq  a^{n}$.\\
-Dann kann man $w$ in $x,y,z$ zerlegen mit $y\neq \epsilon, \vert xy \vert \leq n, w=xyz$.\\
-Nach Pumping-Lemma muss dann für alle $i \in \mathbb{N}$ gelten: $x y^{i} z \in L_1$\\
-Setze $i=2$, betrachte also $x y^{2} z$. Definiere $m\coloneqq \sqrt{n}, m \in \mathbb{N}$.:
-\[m^2=n=\vert xyz \vert < \vert x y^2 z \vert = \vert xyz \vert + \vert y \vert \leq m^2 + m\]
-Das nächstgrößere Wort aus $L_1$ nach $w$ hat aber die Länge
-\[(\sqrt{n}+1)^2=(m+1)^2=m^2+2m+1\]
-Da $\vert xy^2z \vert \leq m^2+m \leq m^2+2m+1$, ist $xy^2z \not\in L_1$.\\
-Damit gilt das Pumping-Lemma nicht, wodurch $L_1$ keine reguläre Sprache ist.
+\item $L_1=\{a^{n}|\sqrt{n}\in \mathbb{N}, n>100\}=\{a^{121}, a^{144}, a^{169}, ...\}=\{a^{m^2}|m\in\mathbb{N},m>10\}$\\
+Sei $m\in\mathbb{N},m>10$ gegeben. Dann ist $w\coloneqq a^{m^2} \in L_1$. Dann kann man $w$ zu $xyz$ zerlegen, mit $|xy|\leq m, y \neq \epsilon$.
+\[m^2=|xyz|<|xy^2z|=|xyz|+|y|\leq m^2+m\]
+Jedoch ist das nach $w$ in $L_1$ nächstgrößere Wort nur \[(m+1)^2=m^2+2m+1\] groß.\\
+Damit ist klar, dass $xy^2z \not\in L_1$ ist. Dadurch gilt das Pumping-Lemma nicht, weshalb $L_1$ keine reguläre Sprache ist.
 
-\item TODO
+\item 
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
