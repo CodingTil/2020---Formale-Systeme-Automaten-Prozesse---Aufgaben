@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+
+%Packages
+\usepackage{amsfonts}	      %Mathematische Zeichen und Fonts
+\usepackage{mathtools}        %Extra Mathematische Symbole
+\usepackage{extarrows}	      %Extra Pfeile
+\usepackage{listings}         %Codeansicht
+\usepackage{scrlayer-scrpage} %Seitenkopf
+\usepackage{tikz}             %tikz
+\usepackage{enumitem}		  %Enumerate
+\usepackage{listings}		  %Code snippets
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+
+\usetikzlibrary{arrows, automata, positioning}
+\pagestyle{scrheadings}
+
+\begin{document}
+
+%%%%%%%%%% Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 5} \\Tutorium 11}
+\ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
+
+%%%%%%%%%% Seiteninhalt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%			Aufgabe H13
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aufgabe H13}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%			Aufgabe H14
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aufgabe H14}
+%Schritt 1
+Wir schreiben die Endzustände als Zustände mit einer $\epsilon$-Transition zum Endzustand End, und den Startzustand als Zustand zu dem eine $\epsilon$-Transition vom Startzustand Start hinführt. 
+\\ \ \\
+\begin{tikzpicture}[->, >=latex, node distance = 1cm, semithick]
+\node[initial,state]	(START)						{Start};
+\node[state]			(1) 	[right=2cm of START]{$1$};
+\node[state]			(2) 	[right=2cm of 1]	{$2$};
+\node[state]			(3) 	[below=2cm of 1]	{$3$};
+\node[state]			(4) 	[below=2cm of 2]	{$4$};
+\node[state,accepting]	(END) 	[right=2cm of 2]	{End};
+s
+\path 	(START) edge [above]					node {$\epsilon$} 	(1)
+		(1) 	edge [above]					node {a} 			(2)
+		(2)		edge [right]					node {b}			(4)
+				edge [loop above, above]		node {b}			(2)
+				edge [bend left=10, below right]node {c}			(3)
+				edge [above]					node {$\epsilon$}	(END)
+		(3)		edge [bend left=10, above left]	node {a}		(2)
+				edge [left]						node {b}			(1)
+				edge [bend right =65, below]	node {$\epsilon$}	(END)
+		(4)		edge [below]					node {a}			(3)
+;
+\end{tikzpicture}
+\\ \ \\
+%Schritt 2
+Eliminiere zunächst Zustand 4:
+\\ \ \\
+\begin{tikzpicture}[->, >=latex, node distance = 1cm, semithick]
+\node[initial,state]	(START)						{Start};
+\node[state]			(1) 	[right=2cm of START]{$1$};
+\node[state]			(2) 	[right=2cm of 1]	{$2$};
+\node[state]			(3) 	[below=2cm of 1]	{$3$};
+\node[state,accepting]	(END) 	[right=2cm of 2]	{End};
+s
+\path 	(START) edge [above]					node {$\epsilon$} 	(1)
+		(1) 	edge [above]					node {a} 			(2)
+		(2)		edge [loop above, above]		node {b}			(2)
+				edge [bend left=10, below right]node {c+ba}			(3)
+				edge [above]					node {$\epsilon$}	(END)
+		(3)		edge [bend left=10, above left]	node {a}		(2)
+				edge [left]						node {b}			(1)
+				edge [bend right =65, below]	node {$\epsilon$}	(END)
+;
+\end{tikzpicture}
+\\ \ \\
+%Schritt 3
+Eliminiere Zustand 3:
+\\ \ \\
+\begin{tikzpicture}[->, >=latex, node distance = 1cm, semithick]
+\node[initial,state]	(START)						{Start};
+\node[state]			(1) 	[right=2cm of START]{$1$};
+\node[state]			(2) 	[right=2cm of 1]	{$2$};
+\node[state,accepting]	(END) 	[right=2cm of 2]	{End};
+s
+\path 	(START) edge [above]					node {$\epsilon$} 	(1)
+		(1) 	edge [bend left=10, above]		node {a} 			(2)
+		(2)		edge [loop above, above]		node {b+((c+ba)a)}	(2)
+				edge [bend left=10, below ]		node {(c+ba)b}		(1)
+				edge [above]					node {$\epsilon$+c+ba}	(END)		
+;
+\end{tikzpicture}
+\\ \ \\
+%Schritt 4
+Eliminiere Zustand 2:
+\\ \ \\
+\begin{tikzpicture}[->, >=latex, node distance = 1cm, semithick]
+\node[initial,state]	(START)						{Start};
+\node[state]			(1) 	[right=2cm of START]{$1$};
+\node[state,accepting]	(END) 	[right=2cm of 2]	{End};
+s
+\path 	(START) edge [above]					node {$\epsilon$} 	(1)
+		(1) 	edge [above]					node {a(b+(c+ba)a)*($\epsilon$+c+ba)} 			(END)
+				edge [loop below, below]		node {a(b+(c+ba)a)*(c+ba)b}				(1)		
+;
+\end{tikzpicture}
+\\ \ \\
+%Schritt 5
+Eliminiere Zustand 1:
+\\ \ \\
+\begin{tikzpicture}[->, >=latex, node distance = 1cm, semithick]
+\node[initial,state]	(START)						{Start};
+\node[state,accepting]	(END) 	[right=3cm of 2]	{End};
+s
+\path 	(START) edge [above] node {(a(b+(c+ba)a)*(c+ba)b)*a(b+(c+ba)a)*($\epsilon$+c+ba)} 			(END)
+;
+\end{tikzpicture}
+\\ \ \\
+Somit erhalten wir also den regulären Ausdruck
+\[\left(a\left(b+\left(c+ba\right)a\right)^{*}\left(c+ba\right)b\right)^{*}a\left(b+\left(c+ba\right)a\right)^{*}\left(\epsilon+c+ba\right)\]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%			Aufgabe H15
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aufgabe H15}
+
+
+\end{document}
