@@ -133,6 +133,55 @@ Somit erhalten wir also den regulären Ausdruck
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Aufgabe H15}
+\begin{enumerate}[label=\alph*)]
+\item Sei $L$ die Sprache mit Worten mit gleich vielen $a$'s und $b$'s.\\
+\underline{Annahme: L regulär}\\
+Sei $n\in\mathbb{N}$. Dann existieren $w\in L$ mit $\# a = \# b = n, \vert w \vert \geq 2n$.\\
+Sei $w$ der Form $a^{n}b^{n}$.\\
+Nach dem Pumping-Lemma kann man $w$ in $x,y,z$ zerlegen mit:
+\begin{itemize}
+\item $w=xyz$
+\item $\vert xy \vert \leq n$
+\item $\vert y \vert > 0$
+\end{itemize}
+Damit ist $y=a^{m}, 0<m\leq n$.\\
+Nach dem Pumping-Lemma muss zudem gelten: $\forall i\in\mathbb{N}: xy^{i}z \in L$.\\
+Betrachte $i=2$:
+\begin{center}
+$xy^2z=a^{n-m}a^{2m}b^{n}=a^{n+m}b^{n} \not\in L$, da $m>0 \Rightarrow n+m \neq n \Rightarrow \# a \neq \# b$.
+\end{center}
+Damit gilt das Pumping-Lemma nicht, weshalb $L$ nicht regulär ist.
+\item
+\item $L=\{abca^nb^mcba\mid m\leq n\}$\\
+\underline{Annahme: L regulär}\\
+Sei $z\in\mathbb{N}$. Dann existieren Wörter $w\in L$ der Form $abca^nb^n$ mit $\vert w \vert \geq 2z+6, n \geq z$.
+Nach dem Pumping-Lemma kann man $w$ in $x,y,z$ zerlegen mit:
+\begin{itemize}
+\item $w=xyz$
+\item $\vert xy \vert \leq n$
+\item $\vert y \vert > 0$
+\item $\forall i\in\mathbb{N}: xy^{i}z \in L$
+\end{itemize}
+\begin{description}
+\item[Fall 1:] $z=1$\par\nobreak
+Damit muss $x=\epsilon, y=a$ gelten. Betrachte $i=0$. Dann ist $xy^iz=xy^0z=bca^nb^ncba\not\in L$.
+\item[Fall 2:] $z=2$\par\nobreak
+Analog zu [Fall 1]. $y$ ist entweder $a$, $ab$ oder $b$. Dann gilt auch für $i=0$ $xy^0z\not\in L$.
+\item[Fall 3:] $z=3$\par\nobreak
+Analog zu [Fall 2]. $y$ kann zusätzlich noch $abc$, $bc$ oder $c$ sein. Damit gilt auch hier für $i=0$ auch $xy^0z\not\in L$.
+\item[Fall 4:] $z>3$\par\nobreak
+\begin{description}
+\item[Fall 4.1:] $0\leq \vert x \vert < 3$
+Dann beinhaltet $y$ mindestens einer der ersten drei Buchstaben. Analog zu den Fällen zuvor gilt somit für $i=0$ auch $xy^0z\not\in L$.
+\item[Fall 4.2:] $3\leq \vert x \vert < z$
+Dann liegt $y$ in $a^n$, bzw. genauer in $a^{z-3}$. Sei $y$ also $a^j, 0<j\leq z-3$.\\
+Betrachte auch hier $i=0$:
+\[xy^iz=xy^0z=abca^{n-3-j}a^{0\cdot j}a^3b^ncba=abca^{n-j}b^ncba\]
+Da $j>0 \Rightarrow \vert a^{n-j} \vert < \vert b^n \vert \Rightarrow xy^0z \not\in L$.
+\end{description}
+\end{description}
+Damit ist gezeigt, dass das Pumping-Lemma nicht gilt. Daher ist $L$ keine reguläre Sprache.
+\end{enumerate}
 
 
 \end{document}
