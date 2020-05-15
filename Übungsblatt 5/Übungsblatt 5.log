@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.1)  14 MAY 2020 15:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.1)  15 MAY 2020 18:01
 entering extended mode
 **"./Übungsblatt 5.tex"
 ("Übungsblatt 5.tex"
@@ -734,7 +734,11 @@ Overfull \vbox (30.53044pt too high) has occurred while \output is active []
 [1{C:/Users/Til Mohr/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-[2] [3] ("Übungsblatt 5.aux") ) 
+[2]
+
+LaTeX Warning: Command \L invalid in math mode on input line 156.
+
+[3] [4] ("Übungsblatt 5.aux") ) 
 Here is how much of TeX's memory you used:
  18296 strings out of 480930
  389997 string characters out of 2909537
@@ -754,9 +758,9 @@ rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Übungsblatt 5.pdf" (3 pages, 116733 bytes).
+Output written on "Übungsblatt 5.pdf" (4 pages, 119809 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

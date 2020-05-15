@@ -151,7 +151,21 @@ Betrachte $i=2$:
 $xy^2z=a^{n-m}a^{2m}b^{n}=a^{n+m}b^{n} \not\in L$, da $m>0 \Rightarrow n+m \neq n \Rightarrow \# a \neq \# b$.
 \end{center}
 Damit gilt das Pumping-Lemma nicht, weshalb $L$ nicht regulär ist.
-\item
+\item $L=\{w\mid w\in \Sigma_{*}, \vert w \vert Fibonaccizahl\}$\\
+\underline{Annahme: L regulär}\\
+Sei $n \in\mathbb{N}$, betrachte $fib(n)$. Dann existieren $w\in\L$ mit $\vert w \vert \geq fib(n) + fib(n+1) = fib(n+2)$\\
+Nach dem Pumping-Lemma kann man $w$ in $x,y,z$ zerlegen mit:
+\begin{itemize}
+\item $w=xyz$
+\item $\vert xy \vert \leq n$
+\item $\vert y \vert > 0$
+\item $\forall i\in\mathbb{N}: xy^{i}z \in L$
+\end{itemize}
+$\Rightarrow 0<\vert y \vert \leq fib(n)$\\
+Betrachte $i=0$:
+\[fib(n+2)=fib(n+1)+fib(n)=\vert w \vert = \vert xyz \vert > \vert xy^0z \vert\] \[= \vert xyz \vert - \vert y \vert > fib(n+1) + fib(n) - fib(n) = fib(n+1)\]
+$\Rightarrow fib(n+1) < \vert xy^0z \vert < fib(n+2)$\\$\Rightarrow \vert xy^0z \vert$ keine Fibonaccizahl\\$\Rightarrow xy^0z \not\in L$\\
+Damit gilt das Pumping-Lemma nicht, weshalb $L$ nicht regulär ist.
 \item $L=\{abca^nb^mcba\mid m\leq n\}$\\
 \underline{Annahme: L regulär}\\
 Sei $z\in\mathbb{N}$. Dann existieren Wörter $w\in L$ der Form $abca^nb^n$ mit $\vert w \vert \geq 2z+6, n \geq z$.
