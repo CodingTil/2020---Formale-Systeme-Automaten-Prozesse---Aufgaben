@@ -37,7 +37,7 @@ for (`$n\in\mathbb{N}$') {
 	for (`$w\in L $' `$\wedge$' `$ \vert w \vert = n$') {
 		if (`$\neg(\exists v\in$' repraesentanten `$\wedge$' `$v\sim w)$') {
 			gefunden=true
-			repraesentanten=repraesentanten`$\cap \{w\}$'
+			repraesentanten=repraesentanten`$\cup \{w\}$'
 		}
 	}
 	if (`$\neg$'gefunden) break
