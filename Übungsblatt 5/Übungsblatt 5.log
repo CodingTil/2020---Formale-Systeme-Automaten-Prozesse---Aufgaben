@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.1)  15 MAY 2020 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.1)  17 MAY 2020 11:18
 entering extended mode
 **"./Übungsblatt 5.tex"
 ("Übungsblatt 5.tex"
@@ -643,75 +643,96 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Overfull \hbox (4.80774pt too wide) in paragraph at lines 32--33
+\OT1/cmr/m/n/10.95 gibt. Desweit-eren muss es von jeder []Aquivalenklassen eine
+n Reprasentatanten
+ []
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 34.
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+5.
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
+
+Overfull \hbox (27.73773pt too wide) in paragraph at lines 40--41
+[][][][][][]$\OMS/cmsy/m/n/10.95 \f\OML/cmm/m/it/10.95 w\OMS/cmsy/m/n/10.95 g$ 
+
+ []
+
 Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
 
-Overfull \hbox (7.26363pt too wide) in paragraph at lines 41--128
+Overfull \hbox (7.26363pt too wide) in paragraph at lines 55--142
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--128
+Underfull \hbox (badness 10000) in paragraph at lines 55--142
 
  []
 
@@ -725,7 +746,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                  \setlength{\headheight}{42.53044pt}
 (scrlayer-scrpage)                in your preamble.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 1
-28.
+42.
 
 
 Overfull \vbox (30.53044pt too high) has occurred while \output is active []
@@ -736,31 +757,31 @@ Overfull \vbox (30.53044pt too high) has occurred while \output is active []
 ]
 [2]
 
-LaTeX Warning: Command \L invalid in math mode on input line 156.
+LaTeX Warning: Command \L invalid in math mode on input line 170.
 
-[3] [4] ("Übungsblatt 5.aux") ) 
+[3] [4] [5] ("Übungsblatt 5.aux") ) 
 Here is how much of TeX's memory you used:
- 18296 strings out of 480930
- 389997 string characters out of 2909537
- 673604 words of memory out of 3000000
- 33855 multiletter control sequences out of 15000+200000
+ 18577 strings out of 480930
+ 392289 string characters out of 2909537
+ 680796 words of memory out of 3000000
+ 34133 multiletter control sequences out of 15000+200000
  538453 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,21n,81p,435b,866s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Til Mohr\AppData\Local\MiKTeX\2.9\fo
-nts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmbxsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Übungsblatt 5.pdf" (4 pages, 119809 bytes).
+ 64i,21n,81p,1129b,1230s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Til Mohr\AppData\Local\MiKTeX\2.
+9\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbxsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "Übungsblatt 5.pdf" (5 pages, 124931 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

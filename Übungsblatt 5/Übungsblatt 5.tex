@@ -29,7 +29,21 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Aufgabe H13}
-
+Da wir wissen, dass $l$ eine reguläre Sprache ist, besitzt die Myhill-Nerode-Relation von $L$ nur einen endlichen Index. Dies bedeutet, dass es ab einer bestimmten Wortlänge $n\in\mathbb{L}$ keine neuen Äquivalenzklassen gibt. Desweiteren muss es von jeder Äquivalenklassen einen Repräsentatanten geben, sodass alle bezüglich der Wortlänge benachbarte Repräsentanten sich maximal in der Länge eines Buchstabens unterscheiden. Wäre dies nicht der Fall, so könnte man schließlich nicht mithilfe des Pumping-Lemmas einen Buchstaben pumpen, weswegen $L$ nicht regulär wäre. Mithilfe dieser beiden Bedingungen kann man einen Algorithmus zum Finden aller Repräsentanten aufstellen. Es genügt, Schritt für Schritt die Wortlänge zu erhöhen, und dann für jedes Wort dieser Länge in $L$ zu schauen, ob es hierfür schon einen Repräsentanten gibt (1. Bedingung). Wenn für eine Wortlänge kein Repräsentant gefunden werden konnte, gibt es auch nach der 2. Bedingung keinen weiteren Repräsentanten in längeren Wörtern:
+\begin{lstlisting}[escapeinside=`']
+repraesentanten=`$\O$'
+for (`$n\in\mathbb{N}$') {
+	gefunden=false
+	for (`$w\in L $' `$\wedge$' `$ \vert w \vert = n$') {
+		if (`$\neg(\exists v\in$' repraesentanten `$\wedge$' `$v\sim w)$') {
+			gefunden=true
+			repraesentanten=repraesentanten`$\cap \{w\}$'
+		}
+	}
+	if (`$\neg$'gefunden) break
+}
+return repraesentanten
+\end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
