@@ -1,0 +1,164 @@
+\documentclass[11pt]{article}
+
+%Packages
+\usepackage{amsfonts}	      %Mathematische Zeichen und Fonts
+\usepackage{mathtools}        %Extra Mathematische Symbole
+\usepackage{extarrows}	      %Extra Pfeile
+\usepackage{listings}         %Codeansicht
+\usepackage{scrlayer-scrpage} %Seitenkopf
+\usepackage{tikz}             %tikz
+\usepackage{enumitem}		  %Enumerate
+\usepackage{listings}		  %Code snippets
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+\usepackage{tikz-qtree}
+
+\usetikzlibrary{arrows, automata, positioning}
+\pagestyle{scrheadings}
+
+\begin{document}
+
+%%%%%%%%%% Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 6} \\Tutorium 11}
+\ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
+
+%%%%%%%%%% Seiteninhalt %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%			Aufgabe H16
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aufgabe H16}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%			Aufgabe H17
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aufgabe H17}
+\begin{enumerate}[label=\alph*)]
+\item
+\item
+\item
+\item
+\item
+\item
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%			Aufgabe H18
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Aufgabe H18}
+\begin{enumerate}
+\item $G_1: S\rightarrow (S)\mid S\wedge S\mid S\vee S\mid \neg S \mid 0 \mid 1$
+\item $G_2: S\rightarrow (S)\mid S\wedge S\mid S\vee F\mid F\vee S\mid S\vee S\mid \neg F\mid 1$
+\\\hspace*{6mm} $F \rightarrow (F) \mid F \wedge S\mid S \wedge F\mid F \wedge F\mid F \vee F \mid \neg S\mid 0$ 
+\item Ableitungsbaum für $\neg 0 \wedge 1$:
+\\ \ \\
+\begin{tikzpicture}
+\tikzset{edge from parent/.style={draw,edge from parent path={(\tikzparentnode.south)-- +(0,-8pt)-| (\tikzchildnode)}}}
+\tikzset{frontier/.style={distance from root=90pt}}
+\Tree 	[.S 
+			[.S
+				[.$\neg$ $\neg$ ]
+				[.F 0 ]	
+			]
+			[.$\wedge$ $\wedge$ ]
+			[.S 1 ]
+		]
+]
+\end{tikzpicture}
+\\ \ \\
+Ableitungsbaum für $\neg(\neg 1 \wedge 0)$:
+\\ \ \\
+\begin{tikzpicture}
+\tikzset{edge from parent/.style={draw,edge from parent path={(\tikzparentnode.south)-- +(0,-8pt)-| (\tikzchildnode)}}}
+\tikzset{frontier/.style={distance from root=150pt}}
+\Tree 	[.S 
+			[.$\neg$ $\neg$ ]
+			[.F 
+				[.( ( ]
+				[.F 
+					[.F 
+						[.$\neg$ $\neg$ ]					
+						[.S 1 ]					
+					]
+					[.$\wedge$ $\wedge$ ]
+					[.F 0 ]					
+				]
+				[.) ) ]				
+			]	
+		]
+]
+\end{tikzpicture}
+\end{enumerate}
+Die Grammatik aus 2. kommt mit 2 Nichtterminalsymbolen aus, von denen eines das Startsymbol ist. Hierbei gilt, dass es ein Nichtterminal für Ausdrücke gibt die zu 0 bzw. false auswerten, und ein Nichtterminal für Ausdrücke die zu 1 auswerten (wahr). Dazu betrachten wir für die logischen Operatoren die folgenden Wahrheitstabellen mit S=1 und F=0:
+\\ \ \\
+\begin{tabular}[h]{c|cc}
+$\wedge$ & S & F \\
+\hline
+S & S & F\\
+F & F & F\\
+\end{tabular}
+\quad
+\begin{tabular}[h]{c|cc}
+$\vee$ & S & F \\
+\hline
+S & S & S\\
+F & S & F\\
+\end{tabular}
+\quad
+\begin{tabular}[h]{c|c}
+$\neg$ \\
+\hline
+S & F\\
+F & S\\
+\end{tabular}
+\\ \ \\Aus den Tabellen können wir nun folgern, dass es für $\wedge$ diese Zuweisungen geben muss:
+\begin{itemize}
+\item $S \rightarrow S \wedge S$
+\item $F \rightarrow S \wedge F \mid F \wedge S \mid F \wedge F$  
+\end{itemize}
+Für $\vee$ muss es diese Zuweisungen geben:
+\begin{itemize}
+\item $S \rightarrow S \vee S \mid S \vee F \mid F \vee S$
+\item $F \rightarrow F \vee F$
+\end{itemize} 
+Und für $\neg$:
+\begin{itemize}
+\item $S \rightarrow \neg F$
+\item $F \rightarrow \neg S$
+\end{itemize}
+Zusätzlich gibt es noch die trivialen Zuweisungen $F\rightarrow (F)$ und $S\rightarrow (S)$, sowie die Terminalsymbole 0 und 1.
+\\Auf diese Art lassen sich alle Grammatikregeln nach Wahrheitswert trennen. Startet man also mit einem S als Startsymbol lassen sich nach den Regeln der Aussagenlogik nur Ausdrücke ableiten deren Wahrheitswert ebenfalls 1 entspricht.
+\\Betrachten wir nun einige Beispiele um dies zu zeigen:
+
+\begin{itemize}
+\item[Bsp. 1:] $0$ sollte nicht durch die Grammatik erzeugbar sein:
+\\$S\rightarrow$ Scheitert, da keine Zuweisung auf ein Nichtterminalsymbol getätigt werden kann, die nicht gleichzeitig die Anzahl der Zeichen erhöht.
+
+\item[Bsp. 2:] $0\wedge 1$ sollte nicht durch die Grammatik erzeugbar sein:
+\\$S\rightarrow S \wedge S \rightarrow S \wedge 1 \rightarrow$ Scheitert, aus selbem Grund wie Bsp. 1
+
+\item[Bsp. 3:] $0\wedge (1\vee 0)$ sollte nicht durch die Grammatik erzeugbar sein:
+\\Versuche: $S\rightarrow S\wedge S \rightarrow S \wedge (S)\rightarrow S \wedge (S\vee F)\rightarrow S \wedge (1\vee 0)$
+\\Scheitert, da 0 nicht durch S erzeugbar ist (siehe Bsp. 1).
+\\Versuche $S \rightarrow S \vee S \rightarrow S \wedge S \vee S$
+\\Scheitert, da korrekte Klammerung nicht erzeugbar ist und 0 wieder nicht durch S erzeugbar ist
+\\Da dies die einzigen beiden Wege sind aus S einen Ausdruck mit genau einem $\wedge$ und genau einem $\vee$ zu erzeugen, ist es unmöglich diesen Ausdruck zu erzeugen.
+
+\item[Bsp. 4:] $1 \vee (0\wedge \neg 0)$ sollte erzeugbar sein:
+\\$S \rightarrow S \vee F \rightarrow 1 \vee F \rightarrow 1 \vee (F) \rightarrow 1 \vee (F \wedge S) \rightarrow 1 \vee (0 \wedge S) \rightarrow 1 \vee (0 \wedge \neg F) \rightarrow 1 \vee (0\wedge \neg 0)$ \hfill $\Box$
+
+\item[Bsp. 5:] $1 \wedge 0 \vee 1$, sollte erzeugbar sein:
+\\$S \rightarrow S \wedge S \rightarrow S \wedge F \vee S \rightarrow 1 \wedge 0 \vee 1$
+
+\end{itemize} 
+
+
+\end{document}
