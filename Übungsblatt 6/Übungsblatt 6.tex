@@ -30,7 +30,110 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Aufgabe H16}
+$(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^*$ ist der Schnitt aus drei Sprachen. Bilde NFAs für diese 3 Sprachen:
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(0)										{0};
+\node[state]			(1)	[right=2cm of 0]					{1};
+\node[state]			(2)	[above=2cm of 0]					{2};
+\node[state]			(3) [below=2cm of 0]					{3};
 
+\path 	(0)	edge [below,bend right=20]	node {a} (1)
+		(1) edge [above,bend right=20]	node {b} (0)
+		(0) edge [right,bend right=20]	node {b} (2)
+		(2) edge [left,bend right=20]	node {c} (0)
+		(0) edge [right,bend left=20]	node {c} (3)
+		(3) edge [left,bend left=20]	node {a} (0)
+;
+\end{tikzpicture}
+
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(0)											{0};
+\node[state]			(1)	[below right=0.75cm and 2cm  of 0]		{1};
+\node[state]			(2)	[above right=0.75cm and 2cm of 0]		{2};
+\node[state]			(3)	[above right=2cm and 0.75cm of 0]		{3};
+\node[state]			(4)	[above left=2cm and 0.75cm of 0]		{4};
+\node[state]			(5) [below right=2cm and 0.75cm of 0]		{5};
+\node[state]			(6) [below left=2cm and 0.75cm of 0]		{6};
+
+\path 	(0)	edge [below,bend left=20]	node {a} (1)
+		(1) edge [right,bend right=20]	node {b} (2)
+		(2) edge [above,bend left=20]	node {c} (0)
+		(0) edge [right,bend left=20]	node {b} (3)
+		(3) edge [above,bend right=20]	node {a} (4)
+		(4) edge [left,bend left=20]	node {b} (0)
+		(0) edge [right,bend right=20]	node {c} (5)
+		(5) edge [below,bend left=20]	node {b} (6)
+		(6) edge [left,bend right=20]	node {a} (0)
+;
+\end{tikzpicture}
+
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(0)										{0};
+\node[state]			(1)	[below right=0.75cm and 2cm of 0]	{1};
+\node[state]			(2)	[right=3.5cm of 0]					{2};
+\node[state]			(3)	[above right=0.75cm and 2cm of 0]	{3};
+\node[state]			(4)	[above=2cm of 0]					{4};
+\node[state]			(5)	[below right=2cm and 0.75cm of 0]	{5};
+\node[state]			(6) [below=3.5cm of 0]					{6};
+\node[state]			(7) [below left=2cm and 0.75cm of 0]	{7};
+
+\path 	(0)	edge [above,bend left=20]	node {a} (1)
+		(1) edge [above,bend left=20]	node {b} (2)
+		(2) edge [below,bend left=20]	node {c} (3)
+		(3) edge [below,bend left=20]	node {a} (0)
+		(0) edge [right,bend right=20]	node {b} (4)
+		(4) edge [left,bend right=20]	node {c} (0)
+		(0) edge [left,bend right=20]	node {c} (5)
+		(5) edge [left,bend right=20]	node {a} (6)
+		(6) edge [right,bend right=20]	node {b} (7)
+		(7) edge [right,bend right=20]	node {a} (0)
+;
+\end{tikzpicture}
+\end{center}
+Aus diesen 3 NFAs kann man nun einen Produktautomaten bilden (den Schnitt):
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(0)												{0,0,0};
+\node[state]			(111)	[below right=1.75cm and 1cm of 0]		{1,1,1};
+\node[state]			(022)	[right=3cm of 111]						{0,2,2};
+\node[state]			(303)	[above right=1.75cm and 1cm of 022]		{3,0,3};
+\node[state]			(010)	[above left=1.75cm and 1cm of 303]		{0,1,0};
+\node[state]			(224)	[left=3cm of 010]						{2,2,4};
+\node[state]			(234)	[above=2cm of 0]						{2,3,4};
+\node[state]			(355)	[below=2cm of 0]						{3,5,5};
+
+\path	(0) 	edge [above]	node {a} (111)
+		(111)	edge [above]	node {b} (022)
+		(022)	edge [above]	node {c} (303)
+		(303)	edge [above]	node {a} (010)
+		(010)	edge [above]	node {b} (224)
+		(224)	edge [above]	node {c} (0)
+		(0)		edge [left]		node {b} (234)
+		(0)		edge [left]		node {c} (355)
+;
+\end{tikzpicture}
+\end{center}
+Minimiert ergibt das:
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state]	(0)												{0,0,0};
+\node[state]			(111)	[below right=1.75cm and 1cm of 0]		{1,1,1};
+\node[state]			(022)	[right=3cm of 111]						{0,2,2};
+\node[state]			(303)	[above right=1.75cm and 1cm of 022]		{3,0,3};
+\node[state]			(010)	[above left=1.75cm and 1cm of 303]		{0,1,0};
+\node[state]			(224)	[left=3cm of 010]						{2,2,4};
+
+\path	(0) 	edge [above]	node {a} (111)
+		(111)	edge [above]	node {b} (022)
+		(022)	edge [above]	node {c} (303)
+		(303)	edge [above]	node {a} (010)
+		(010)	edge [above]	node {b} (224)
+		(224)	edge [above]	node {c} (0)
+;
+\end{tikzpicture}
+\end{center}
+Daraus folgt, dass $(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^* = (abcabc)^*$ ist.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
