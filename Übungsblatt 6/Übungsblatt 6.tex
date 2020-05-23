@@ -33,7 +33,7 @@
 $(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^*$ ist der Schnitt aus drei Sprachen. Bilde NFAs für diese 3 Sprachen:
 \begin{center}
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-\node[initial,state]	(0)										{0};
+\node[initial,state,accepting]	(0)										{0};
 \node[state]			(1)	[right=2cm of 0]					{1};
 \node[state]			(2)	[above=2cm of 0]					{2};
 \node[state]			(3) [below=2cm of 0]					{3};
@@ -48,7 +48,7 @@ $(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^*$ ist der Schnitt aus dr
 \end{tikzpicture}
 
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-\node[initial,state]	(0)											{0};
+\node[initial,state,accepting]	(0)											{0};
 \node[state]			(1)	[below right=0.75cm and 2cm  of 0]		{1};
 \node[state]			(2)	[above right=0.75cm and 2cm of 0]		{2};
 \node[state]			(3)	[above right=2cm and 0.75cm of 0]		{3};
@@ -69,7 +69,7 @@ $(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^*$ ist der Schnitt aus dr
 \end{tikzpicture}
 
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-\node[initial,state]	(0)										{0};
+\node[initial,state,accepting]	(0)										{0};
 \node[state]			(1)	[below right=0.75cm and 2cm of 0]	{1};
 \node[state]			(2)	[right=3.5cm of 0]					{2};
 \node[state]			(3)	[above right=0.75cm and 2cm of 0]	{3};
@@ -94,7 +94,7 @@ $(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^*$ ist der Schnitt aus dr
 Aus diesen 3 NFAs kann man nun einen Produktautomaten bilden (den Schnitt):
 \begin{center}
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-\node[initial,state]	(0)												{0,0,0};
+\node[initial,state,accepting]	(0)												{0,0,0};
 \node[state]			(111)	[below right=1.75cm and 1cm of 0]		{1,1,1};
 \node[state]			(022)	[right=3cm of 111]						{0,2,2};
 \node[state]			(303)	[above right=1.75cm and 1cm of 022]		{3,0,3};
@@ -117,7 +117,7 @@ Aus diesen 3 NFAs kann man nun einen Produktautomaten bilden (den Schnitt):
 Minimiert ergibt das:
 \begin{center}
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-\node[initial,state]	(0)												{0,0,0};
+\node[initial,state,accepting]	(0)												{0,0,0};
 \node[state]			(111)	[below right=1.75cm and 1cm of 0]		{1,1,1};
 \node[state]			(022)	[right=3cm of 111]						{0,2,2};
 \node[state]			(303)	[above right=1.75cm and 1cm of 022]		{3,0,3};
@@ -142,12 +142,42 @@ Daraus folgt, dass $(ab+bc+ca)^* \cap (abc+bab+cba)^* \cap (abca+bc+caba)^* = (a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{Aufgabe H17}
 \begin{enumerate}[label=\alph*)]
-\item
-\item
-\item
-\item
-\item
-\item
+\item \begin{itemize}
+\item $S$ ist das Startsymbol, und ist daher auch erreichbar.
+\item Da es die Ableitungs $S\Rightarrow BDA$ gibt, ist $A$ erreichbar.
+\item Da es die Ableitungs $S\Rightarrow BDA$ gibt, ist $B$ erreichbar.
+\item Da es die Ableitungs $S\Rightarrow DC$ gibt, ist $C$ erreichbar.
+\item Da es die Ableitungs $S\Rightarrow DC$ gibt, ist $D$ erreichbar.
+\end{itemize}
+Damit sind alle $X\in N$ erreichbar. Die Menge der unerreichbaren Symbole von G ist also $\O$.
+\item \begin{itemize}
+\item Das Nichtterminal $A$ ist produktiv, da es z.B. die Ableitung $A\Rightarrow a$ gibt.
+\item Das Nichtterminal $B$ ist produktiv, da es z.B. die Ableitung $B\Rightarrow \epsilon$ gibt.
+\item Das Nichtterminal $C$ ist produktiv, da es z.B. die Ableitung $C\Rightarrow a$ gibt.
+\item Das Nichtterminal $D$ ist produktiv, da es z.B. die Ableitung $D\Rightarrow aA$ gibt, und $A$ selber auch produktiv ist.
+\item Das Nichtterminal $S$ ist produktiv, da es z.B. die Ableitung $S\Rightarrow DC$ gibt, und sowohl $C$ als auch $D$ selber produktiv sind.
+\end{itemize}
+Damit ist die Menge der unproduktiven Symbole von G gleich $\O$.
+\item Nein, $L(G)=\O$ gilt nicht, da es z.B. die Ableitung $S\Rightarrow BDA\Rightarrow \epsilon DA\Rightarrow aAA\Rightarrow aaA \Rightarrow aaa$ gibt. Damit enthält $L(G)$ also mind. ein Wort und ist somit ungleich $\O$.
+\item Damit $\epsilon\in L(G)$ gilt, muss es eine Ableitung $S\xRightarrow[]{*}\epsilon$ geben. Da nur $B$ eine Ableitung nach $\epsilon$ enthält (siehe Teilaufgabe e)), muss auch $S\xRightarrow[]{*} B\Rightarrow\epsilon$ gelten. $S$ hingegen kann nicht direkt auf $B$ ableiten, und da es keine unproduktiven Symbole in G gibt, gilt $S\xRightarrow[]{*}\epsilon$ nicht, wodurch $\epsilon\not\in L(G)$ gilt.
+\item Erstelle $pre^{*}_{G}(\epsilon)$:
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state,accepting] (0) {0};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+\node[initial,state,accepting] (0) {0};
+\path (0) edge[loop,above] node{B} (0);
+\end{tikzpicture}
+\end{center}
+Also ist die Menge der nullierbaren Symbole $\{B\}$.
+\item Da es keine unnerreichbaren oder unproduktiven Symbole in G gibt, muss man G nur bezüglich den nullierbaren Symbolen - also $B$ - anpassen. Die einfachste Möglichkeit ist, alle Vorkommen von B in den Ableitungen anzupassen:\\
+$G': S\rightarrow ScDA \mid cDDA \mid ADDA \mid DAC \mid DC$
+\\\hspace*{6mm} $A\rightarrow SA \mid aA \mid a \mid d \mid b$
+\\\hspace*{6mm} $C\rightarrow aD \mid dA \mid bC \mid a \mid d \mid b$
+\\\hspace*{6mm} $D\rightarrow ScS \mid cDS \mid ADS \mid cC \mid aA$
 \end{enumerate}
 
 
