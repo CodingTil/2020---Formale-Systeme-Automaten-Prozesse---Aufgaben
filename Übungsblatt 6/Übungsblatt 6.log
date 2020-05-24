@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.5.24)  25 MAY 2020 01:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.5.24)  25 MAY 2020 01:19
 entering extended mode
 **"./Übungsblatt 6.tex"
 ("Übungsblatt 6.tex"
@@ -798,7 +798,7 @@ Here is how much of TeX's memory you used:
  34126 multiletter control sequences out of 15000+200000
  538453 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,20n,81p,785b,1040s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,20n,81p,781b,1040s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\timni\AppData\Local\MiKTeX\2.9\f
 onts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/timni/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/timni/AppD
@@ -813,7 +813,7 @@ ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/timni/AppData
 timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /symbols/msam10.pfb>
-Output written on "Übungsblatt 6.pdf" (7 pages, 133820 bytes).
+Output written on "Übungsblatt 6.pdf" (7 pages, 133814 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
