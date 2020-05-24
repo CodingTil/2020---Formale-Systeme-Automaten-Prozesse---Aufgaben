@@ -225,44 +225,30 @@ Ableitungsbaum für $\neg(\neg 1 \wedge 0)$:
 ]
 \end{tikzpicture}
 \end{enumerate}
-Die Grammatik aus 2. kommt mit 2 Nichtterminalsymbolen aus, von denen eines das Startsymbol ist. Hierbei gilt, dass es ein Nichtterminal für Ausdrücke gibt die zu 0 bzw. false auswerten, und ein Nichtterminal für Ausdrücke die zu 1 auswerten (wahr). Dazu betrachten wir für die logischen Operatoren die folgenden Wahrheitstabellen mit S=1 und F=0:
+Die Grammatik aus 2. ist im Allgemeinen in Terme aufgeteilt, die zu 1 auswerten (R) und solche, die zu 0 auswerten (F). Da jeder Ausdruck der kontextfreien Grammatik zu 1 auswerten soll, sind im Folgenden die Ergebnisse von allen UND beziehungsweise ODER VErknüpfungen tabellarisch dargestellt:
 \\ \ \\
 \begin{tabular}[h]{c|cc}
-$\wedge$ & S & F \\
+$\wedge$ & R & F \\
 \hline
-S & S & F\\
+R & R & F\\
 F & F & F\\
 \end{tabular}
 \quad
 \begin{tabular}[h]{c|cc}
-$\vee$ & S & F \\
+$\vee$ & R & F \\
 \hline
-S & S & S\\
-F & S & F\\
+R & R & R\\
+F & R & F\\
 \end{tabular}
 \quad
 \begin{tabular}[h]{c|c}
 $\neg$ \\
 \hline
-S & F\\
-F & S\\
+R & F\\
+F & R\\
 \end{tabular}
-\\ \ \\Aus den Tabellen können wir nun folgern, dass es für $\wedge$ diese Zuweisungen geben muss:
-\begin{itemize}
-\item $S \rightarrow S \wedge S$
-\item $F \rightarrow S \wedge F \mid F \wedge S \mid F \wedge F$  
-\end{itemize}
-Für $\vee$ muss es diese Zuweisungen geben:
-\begin{itemize}
-\item $S \rightarrow S \vee S \mid S \vee F \mid F \vee S$
-\item $F \rightarrow F \vee F$
-\end{itemize} 
-Und für $\neg$:
-\begin{itemize}
-\item $S \rightarrow \neg F$
-\item $F \rightarrow \neg S$
-\end{itemize}
-Zusätzlich gibt es noch die trivialen Zuweisungen $F\rightarrow (F)$ und $S\rightarrow (S)$, sowie die Terminalsymbole 0 und 1.
+
+Die Grammatik besteht aus 5 Nichtterminalsymbolen, von denen sich einzig die A und B direkt auf Terminalsymbole ableiten lassen. A erzeugt hierbei Terminalsymbole, die 1 ergeben und B erzeugt diejenigen, die 0 ergeben. Des Weiteren gibt es die Nichterminalsymbole R und F. R erzuegt alle Terme, die zu 1 evaluiert werden mithilfe der logischen Verknüpfungen(UND/ODER/NEG) aus der Tabelle. Analog dazu erzeugt das Nichtterminalsymbol F alle logischen Terme, die zu 0 auswerten. Das Startsymbol S lässt sich entweder direkt zu A ableiten oder es erzeugt alle Verknüpfungen der logischen Tabelle, die den Wahrheitswert 1 haben. Somit ist gewährleistet, dass die Grammatik einzig Ausdrücke erzeugt, die zu 1 evalueirt werden.   
 \\Auf diese Art lassen sich alle Grammatikregeln nach Wahrheitswert trennen. Startet man also mit einem S als Startsymbol lassen sich nach den Regeln der Aussagenlogik nur Ausdrücke ableiten deren Wahrheitswert ebenfalls 1 entspricht.
 \\Betrachten wir nun einige Beispiele um dies zu zeigen:
 
