@@ -202,12 +202,9 @@ $G': S\rightarrow ScDA \mid cDDA \mid ADDA \mid DAC \mid DC$
 \tikzset{edge from parent/.style={draw,edge from parent path={(\tikzparentnode.south)-- +(0,-8pt)-| (\tikzchildnode)}}}
 \tikzset{frontier/.style={distance from root=90pt}}
 \Tree 	[.S 
-			[.S
-				[.$\neg$ $\neg$ ]
-				[.F 0 ]	
-			]
+			[.R A $\neg 0$ ]
 			[.$\wedge$ $\wedge$ ]
-			[.S 1 ]
+			[.R A $\wedge$ 1 ]
 		]
 ]
 \end{tikzpicture}
