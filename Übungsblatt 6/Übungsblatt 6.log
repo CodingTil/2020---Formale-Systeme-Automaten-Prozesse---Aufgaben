@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.1)  24 MAY 2020 20:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.1)  24 MAY 2020 20:39
 entering extended mode
 **"./Übungsblatt 6.tex"
 ("Übungsblatt 6.tex"
@@ -709,17 +709,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--227
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 228--252
+Underfull \hbox (badness 10000) in paragraph at lines 228--250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--252
-
+Overfull \hbox (87.8099pt too wide) in paragraph at lines 251--254
+\OT1/cmr/m/n/10.95 alle Terme, die zu 1 evaluiert wer-den mithilfe der lo-gis-c
+hen Verknupfungen(UND/ODER/NEG)
  []
 
 [5]
-Overfull \hbox (5.47183pt too wide) in paragraph at lines 270--272
+Overfull \hbox (5.47183pt too wide) in paragraph at lines 256--258
 \OML/cmm/m/it/10.95 S \OMS/cmsy/m/n/10.95 !$ \OT1/cmr/m/n/10.95 Scheit-ert, da 
 keine Zuweisung auf ein Nicht-ter-mi-nal-sym-bol getatigt
  []
@@ -732,7 +733,7 @@ Here is how much of TeX's memory you used:
  34132 multiletter control sequences out of 15000+200000
  538453 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,20n,81p,483b,1040s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,20n,81p,760b,1040s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Til Mohr\AppData\Local\MiKTeX\2.9\fonts/
 pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
@@ -744,7 +745,7 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "Übungsblatt 6.pdf" (6 pages, 131912 bytes).
+Output written on "Übungsblatt 6.pdf" (6 pages, 132236 bytes).
 PDF statistics:
  69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
