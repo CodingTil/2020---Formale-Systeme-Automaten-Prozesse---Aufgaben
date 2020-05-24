@@ -213,13 +213,14 @@ Ableitungsbaum für $\neg(\neg 1 \wedge 0)$:
 \tikzset{edge from parent/.style={draw,edge from parent path={(\tikzparentnode.south)-- +(0,-8pt)-| (\tikzchildnode)}}}
 \tikzset{frontier/.style={distance from root=150pt}}
 \Tree 	[.S 
-			[.RN 
-				[.$\neg ($ $\neg ($ ]
+			[.$\neg$ $\neg$ ]
+			[.F 
+				[.( ( ]
 				[.F B $\neg 1$ ]
 				[.$\wedge$ $\wedge$ ]
 				[.F B 0 ]
 				[.) ) ]
-			]	
+			]
 		]
 ]
 \end{tikzpicture}
