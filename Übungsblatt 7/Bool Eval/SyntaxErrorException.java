@@ -4,12 +4,6 @@ import java.lang.Exception;
  */
 public class SyntaxErrorException extends Exception {
 
-	/** Initializes the {@link java.io.Exception} object with a standard message.
-	 */
-	public SyntaxErrorException() {
-		super("A Syntax Error was detected.");
-	}
-
 	/** Initializes the {@link java.io.Exception} object with a custom message.
 	 * @param message custom exception message
 	 */

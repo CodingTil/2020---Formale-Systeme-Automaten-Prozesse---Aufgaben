@@ -4,8 +4,9 @@
  public class BracketMismatchException extends Exception {
 
  	/** Initializes the {@link SyntaxErrorException} object with a standard message.
+	 * @param boolExp the boolean expression where the error occured
  	 */
- 	public BracketMismatchException() {
- 		super("There is a mismatch in Brackets.");
+ 	public BracketMismatchException(String boolExp) {
+ 		super("There is a mismatch in Brackets in '" + boolExp + "'.");
  	}
  }

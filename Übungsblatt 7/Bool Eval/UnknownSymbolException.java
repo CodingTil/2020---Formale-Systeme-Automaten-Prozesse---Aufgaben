@@ -5,8 +5,9 @@
 
  	/** Initializes the {@link SyntaxErrorException} object with a standard message and the unknown symbol.
 	 * @param c the unknown symbol
+	 * @param boolExp the boolean expression where the error occured
  	 */
- 	public UnknownSymbolException(char c) {
- 		super("An unknown symbol was detected: " + c);
+ 	public UnknownSymbolException(char c, String boolExp) {
+ 		super("An unknown symbol '" + c + "' was detected in '" + boolExp + "'.");
  	}
  }
