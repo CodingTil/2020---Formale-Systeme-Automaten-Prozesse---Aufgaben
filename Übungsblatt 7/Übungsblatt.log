@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.5.24)  29 MAY 2020 11:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.5.24)  30 MAY 2020 14:53
 entering extended mode
 **./Übungsblatt.tex
 (Übungsblatt.tex
@@ -720,21 +720,17 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
 
 
 ("C:\Users\timni\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
 
 ("C:\Users\timni\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 33--44
-
- []
-
 
 Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                At least 42.53044pt needed,
@@ -744,8 +740,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                e.g., using
 (scrlayer-scrpage)                  \setlength{\headheight}{42.53044pt}
 (scrlayer-scrpage)                in your preamble.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 8
-6.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
+0.
 
 
 Overfull \vbox (30.53044pt too high) has occurred while \output is active []
@@ -753,33 +749,55 @@ Overfull \vbox (30.53044pt too high) has occurred while \output is active []
 
 [1{C:/Users/timni/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-] [2]
-Overfull \hbox (1.38881pt too wide) in paragraph at lines 111--134
-[]|  \OT1/cmr/m/n/10.95 Stre-ichen der Ket-ten-regeln und fer-tige Chomsky-Norm
-alform: 
+]
+Overfull \hbox (9.852pt too wide) in paragraph at lines 84--86
+[]\OT1/cmr/m/n/10.95 Grammatik in Greibach-Normalform: Aus-gangs-gram-matik ist
+ die Gram-
  []
 
-[3] [4] (Übungsblatt.aux) ) 
+
+Overfull \hbox (16.5881pt too wide) in paragraph at lines 86--99
+[]\OT1/cmr/m/n/10.95 Entferne Linksrekur-sion in S, da S uber die Linksrekur-s
+iven Ableitun-
+ []
+
+
+Overfull \hbox (10.31882pt too wide) in paragraph at lines 99--112
+|  \OML/cmm/m/it/10.95 R[]BR[] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]BR[
+] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]CR[] \OMS/cmsy/m/n/10.95 j \OML/
+cmm/m/it/10.95 R[]CR[] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]AZR[] \OMS/
+cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]SZR[] \OMS/cmsy/m/n/10.95 j
+ []
+
+
+Overfull \hbox (5.10635pt too wide) in paragraph at lines 99--112
+|  \OML/cmm/m/it/10.95 R[]R[]ZR[] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]
+R[]ZR[] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]BZR[] \OMS/cmsy/m/n/10.95 
+j \OML/cmm/m/it/10.95 R[]BZR[] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 R[]CZR
+[] \OMS/cmsy/m/n/10.95 j
+ []
+
+[2] [3] [4] (Übungsblatt.aux) ) 
 Here is how much of TeX's memory you used:
  17818 strings out of 480934
  387158 string characters out of 2899917
- 648919 words of memory out of 3000000
+ 649919 words of memory out of 3000000
  33389 multiletter control sequences out of 15000+200000
  538453 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,20n,81p,431b,648s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\timni\AppData\Local\MiKTeX\2.9\fonts/pk/
-ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/timni/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/timni/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxsl10.pfb><C:/Users/tim
-ni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-<C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/timni/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/timni/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Übungsblatt.pdf (4 pages, 99262 bytes).
+ 64i,20n,81p,441b,648s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\timni\AppData\Local\MiKTeX\2.9\fonts
+/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/timni/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/timni/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxsl10.pfb><C:/Users
+/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb><C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><C:/Users/timni/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/timni/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/timni/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Übungsblatt.pdf (4 pages, 97015 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

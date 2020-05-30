@@ -30,109 +30,100 @@
 \begin{enumerate}
 \item Grammatik in Chomsky-Normalform
 \begin{itemize}
-\item \hspace*{6mm} Gegeben ist folgende kontextfreie Grammatik:
-\\
-\\\hspace*{6mm} $S \hspace{3,5mm}\rightarrow K^{+}\mid K^{+}\vee D\mid K\vee S$
-\\\hspace*{6mm} $K^{+} \rightarrow P^{+}\mid P^{+}\wedge K^{+}$
-\\\hspace*{6mm} $P^{+} \hspace{0,5mm}\rightarrow 1\mid (S)\mid \neg P^{-}$
-\\\hspace*{6mm} $P^{-} \hspace{0,5mm}\rightarrow 0\mid (D^{-})\mid \neg P^{+}$
-\\\hspace*{6mm} $D^{-} \rightarrow K^{-}\mid K^{-}\vee D^{-}$
-\\\hspace*{6mm} $K^{-} \rightarrow P^{-}\mid P^{-}\wedge K\mid P\wedge K^{-}$
-\\\hspace*{6mm} $D \hspace{2,5mm}\rightarrow S\mid D^{-}$
-\\\hspace*{6mm} $K \hspace{2,2mm}\rightarrow K^{+}\mid K^{-}$
-\\\hspace*{6mm} $P \hspace{2,8mm}\rightarrow P^{+}\mid P^{-}$
-\item \hspace*{6mm} Ersetzen der Terminalsymbole durch neue Nichtterminalsym \hspace*{7,5mm}bole:
-\\\hspace*{6mm} $S \hspace{3,5mm}\rightarrow K^{+}\mid K^{+}R_{\vee}D\mid KR_{\vee}S$
-\\\hspace*{6mm} $K^{+} \rightarrow P^{+}\mid P^{+}R_{\wedge}K^{+}$
-\\\hspace*{6mm} $P^{+} \hspace{0,5mm}\rightarrow R_{1}\mid R_{(}SR_{)}\mid R_{\neg} P^{-}$
-\\\hspace*{6mm} $P^{-} \hspace{0,5mm}\rightarrow R_{0}\mid R_{(}D^{-}R_{)}\mid R_{\neg}P^{+}$
-\\\hspace*{6mm} $D^{-} \rightarrow K^{-}\mid K^{-}R_{\vee}D^{-}$
-\\\hspace*{6mm} $K^{-} \rightarrow P^{-}\mid P^{-}R_{\wedge} K\mid PR_{\wedge} K^{-}$
-\\\hspace*{6mm} $D \hspace{2,5mm}\rightarrow S\mid D^{-}$
-\\\hspace*{6mm} $K \hspace{2,2mm}\rightarrow K^{+}\mid K^{-}$
-\\\hspace*{6mm} $P \hspace{2,8mm}\rightarrow P^{+}\mid P^{-}$
-\\\hspace*{6mm} $R_{1} \rightarrow 1$
+\item  Gegeben ist folgende kontextfreie Grammatik:
+\\\hspace*{6mm}$S \rightarrow (S)\mid 0 \mid 1\mid \neg S \mid S \wedge S \mid S \vee S$
+\item Ersetze alle Terminalsymbole durch neue Nichtterminalsymbole:
+\\\hspace*{6mm} $S \rightarrow R_{(}SR_{)}\mid R_{0} \mid R_{1}\mid R_{\neg} S \mid S R_{\wedge} S \mid S R_{\vee} S$
 \\\hspace*{6mm} $R_{0} \rightarrow 0$
-\\\hspace*{6mm} $R_{(} \rightarrow ($
-\\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
 \\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
 \\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
 \\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
-\item \hspace*{6mm} Hinzufügung neuer Nonterminale, falls Nonterminal auf mehr \hspace*{6mm} als zwei andere Nonterminale ableitet:
-\\\hspace*{6mm} $S \hspace{3,5mm}\rightarrow K^{+}\mid K^{+} A\mid KB$
-\\\hspace*{6mm} $A \rightarrow R_{\vee}D$
-\\\hspace*{6mm} $B \rightarrow R_{\vee}S$
-\\\hspace*{6mm} $K^{+} \rightarrow P^{+}\mid P^{+}C$
-\\\hspace*{6mm} $C \rightarrow R_{\wedge}K^{+}$
-\\\hspace*{6mm} $P^{+} \hspace{0,5mm}\rightarrow R_{1}\mid R_{(}E\mid R_{\neg} P^{-}$
-\\\hspace*{6mm} $E \rightarrow SR_{)}$
-\\\hspace*{6mm} $P^{-} \hspace{0,5mm}\rightarrow R_{0}\mid R_{(}F\mid R_{\neg}P^{+}$
-\\\hspace*{6mm} $F \rightarrow D^{-}R_{)}$
-\\\hspace*{6mm} $D^{-} \rightarrow K^{-}\mid K^{-}G$
-\\\hspace*{6mm} $G \rightarrow R_{\vee}D^{-}$
-\\\hspace*{6mm} $K^{-} \rightarrow P^{-}\mid P^{-} H\mid P I$
-\\\hspace*{6mm} $H \rightarrow R_{\wedge} K$
-\\\hspace*{6mm} $I \rightarrow R_{\wedge} K^{-}$
-\\\hspace*{6mm} $D \hspace{2,5mm}\rightarrow S\mid D^{-}$
-\\\hspace*{6mm} $K \hspace{2,2mm}\rightarrow K^{+}\mid K^{-}$
-\\\hspace*{6mm} $P \hspace{2,8mm}\rightarrow P^{+}\mid P^{-}$
-\\\hspace*{6mm} $R_{1} \rightarrow 1$
-\\\hspace*{6mm} $R_{0} \rightarrow 0$
 \\\hspace*{6mm} $R_{(} \rightarrow ($
 \\\hspace*{6mm} $R_{)} \rightarrow )$
+\item Ersetzen von Ableitungen auf mehr als zwei Nichtterminalsymbole:
+\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{0} \mid R_{1}\mid R_{\neg} S \mid S B \mid S C$
+\\\hspace*{6mm} $A \rightarrow SR_{)}$
+\\\hspace*{6mm} $B \rightarrow R_{\wedge} S$
+\\\hspace*{6mm} $C \rightarrow R_{\vee} S$
+\\\hspace*{6mm} $R_{0} \rightarrow 0$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
 \\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
 \\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
 \\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
-\item \hspace*{6mm} Auflösen der Kettenregel durch Hinzufügung neuer Ableitun \hspace*{7mm}gen:
-\\\hspace*{6mm} $S \hspace{3,5mm}\rightarrow K^{+}\mid K^{+} A\mid KB\mid P^{+} \mid P^{+}A \mid P^{+}C \mid R_{1}C \mid R_{(}E \mid \hspace*{5,5mm} R_{\neg}P^{-} \mid R_{\neg}R_{0} \mid K^{+}B \mid K^{-}B \mid P^{+}B \mid R_{1}B \mid P^{-}B \mid R^{0}B \mid \hspace*{5,7mm}R^{1}A$
-\\\hspace*{6mm} $A \rightarrow R_{\vee}D \mid R_{\vee}S \mid R_{\vee}D^{-} \mid R_{\vee}K^{-} \mid R_{\vee}P^{-} \mid R_{\vee}R_{0}$
-\\\hspace*{6mm} $B \rightarrow R_{\vee}S$
-\\\hspace*{6mm} $K^{+} \rightarrow P^{+}\mid P^{+}C \mid R_{1}C$
-\\\hspace*{6mm} $C \rightarrow R_{\wedge}K^{+} \mid R_{\wedge}P^{+} \mid R_{\wedge}R_{1}$
-\\\hspace*{6mm} $P^{+} \hspace{0,5mm}\rightarrow R_{1}\mid R_{(}E\mid R_{\neg} P^{-} \mid R_{\neg}R_{0}$
-\\\hspace*{6mm} $E \rightarrow SR_{)}$
-\\\hspace*{6mm} $P^{-} \hspace{0,5mm}\rightarrow R_{0}\mid R_{(}F\mid R_{\neg}P^{+} \mid R_{\neg}R_{1}$
-\\\hspace*{6mm} $F \rightarrow D^{-}R_{)} \mid K^{-}R_{)} \mid P^{-}R_{)} \mid R_{0}R_{)}$
-\\\hspace*{6mm} $D^{-} \rightarrow K^{-}\mid K^{-}G \mid P^{-}G \mid R_{0}G$
-\\\hspace*{6mm} $G \rightarrow R_{\vee}D^{-} \mid R_{\vee}K^{-} \mid R_{\vee}P^{-} \mid R_{\vee}R_{0}$
-\\\hspace*{6mm} $K^{-} \rightarrow P^{-}\mid P^{-} H\mid PI \mid R_{0} \mid R_{0}H \mid P^{+}I \mid P^{-}I \mid R_{1}I \mid R_{0}I$
-\\\hspace*{6mm} $H \rightarrow R_{\wedge} K \mid R_{\wedge} K^{+} \mid R_{\wedge} K^{-} \mid R_{\wedge} P^{+} \mid R_{\wedge} R_{1} \mid R_{\wedge} P^{-} \mid R_{\wedge} R_{0}$
-\\\hspace*{6mm} $I \rightarrow R_{\wedge} K^{-} \mid R_{\wedge} P^{-} \mid R_{\wedge}R_{0}$
-\\\hspace*{6mm} $D \hspace{2,5mm}\rightarrow S\mid D^{-} \mid K^{-} \mid P^{-} \mid R_{0}$
-\\\hspace*{6mm} $K \hspace{2,2mm}\rightarrow K^{+}\mid K^{-} \mid P^{+} \mid R_{1} \mid P^{-} \mid R_{0}$
-\\\hspace*{6mm} $P \hspace{2,8mm}\rightarrow P^{+}\mid P^{-} \mid R_{1} \mid R_{0}$
-\\\hspace*{6mm} $R_{1} \rightarrow 1$
-\\\hspace*{6mm} $R_{0} \rightarrow 0$
 \\\hspace*{6mm} $R_{(} \rightarrow ($
 \\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm}
+\item Einfügen neuer Produktionen:
+\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{0} \mid R_{1}\mid R_{\neg} S \mid R_{\neg} R_{0} \mid R_{\neg} R_{1} \mid S B \mid R_{0}B \mid R_{1}B \mid \hspace*{15mm} SC \mid R_{0} C \mid R_{1}C$
+\\\hspace*{6mm} $A \rightarrow SR_{)} \mid R_{0}R_{)}\mid R_{1}R_{)}$
+\\\hspace*{6mm} $B \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1}$
+\\\hspace*{6mm} $C \rightarrow R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1}$
+\\\hspace*{6mm} $R_{0} \rightarrow 0$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
 \\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
 \\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
 \\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
-\item \hspace*{6mm} Streichen der Kettenregeln und fertige Chomsky-Normalform:
-\\\hspace*{6mm} $S \hspace{3,5mm}\rightarrow K^{+} A\mid P^{+}A \mid P^{+}C \mid R_{1}C \mid R_{(}E \mid R_{\neg}P^{-} \mid  R_{\neg}R_{0} \mid \hspace*{18mm}K^{+}B \mid K^{-}B \mid P^{+}B \mid R_{1}B \mid P^{-}B \mid R^{0}B \mid R^{1}A$
-\\\hspace*{6mm} $S \rightarrow 1$
-\\\hspace*{6mm} $A \rightarrow R_{\vee}S \mid R_{\vee}D^{-} \mid R_{\vee}K^{-} \mid R_{\vee}P^{-} \mid R_{\vee}R_{0}$
-\\\hspace*{6mm} $B \rightarrow R_{\vee}S$
-\\\hspace*{6mm} $K^{+} \rightarrow P^{+}C \mid R_{1}C$
-\\\hspace*{6mm} $C \rightarrow R_{\wedge}K^{+} \mid R_{\wedge}P^{+} \mid R_{\wedge}R_{1}$
-\\\hspace*{6mm} $P^{+} \hspace{0,5mm}\rightarrow R_{(}E\mid R_{\neg} P^{-} \mid R_{\neg}R_{0}$
-\\\hspace*{6mm} $E \rightarrow SR_{)}$
-\\\hspace*{6mm} $P^{-} \hspace{0,5mm}\rightarrow R_{(}F\mid R_{\neg}P^{+} \mid R_{\neg}R_{1}$
-\\\hspace*{6mm} $F \rightarrow D^{-}R_{)} \mid K^{-}R_{)} \mid P^{-}R_{)} \mid R_{0}R_{)}$
-\\\hspace*{6mm} $D^{-} \rightarrow K^{-}G \mid P^{-}G \mid R_{0}G$
-\\\hspace*{6mm} $G \rightarrow R_{\vee}D^{-} \mid R_{\vee}K^{-} \mid R_{\vee}P^{-} \mid R_{\vee}R_{0}$
-\\\hspace*{6mm} $K^{-} \rightarrow P^{-} H\mid PI \mid R_{0}H \mid P^{+}I \mid P^{-}I \mid R_{1}I \mid R_{0}I$
-\\\hspace*{6mm} $H \rightarrow R_{\wedge} K \mid R_{\wedge} K^{+} \mid R_{\wedge} K^{-} \mid R_{\wedge} P^{+} \mid R_{\wedge} R_{1} \mid R_{\wedge} P^{-} \mid R_{\wedge} R_{0}$
-\\\hspace*{6mm} $I \rightarrow R_{\wedge} K^{-} \mid R_{\wedge} P^{-} \mid R_{\wedge}R_{0}$
-\\\hspace*{6mm} $R_{1} \rightarrow 1$
-\\\hspace*{6mm} $R_{0} \rightarrow 0$
 \\\hspace*{6mm} $R_{(} \rightarrow ($
 \\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm}
+\item Streichen der Kettenregeln und fertige Chomsky-Normalform:
+\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{\neg} S \mid R_{\neg} R_{0} \mid R_{\neg} R_{1} \mid S B \mid R_{0}B \mid R_{1}B \mid \hspace*{17mm} SC \mid R_{0} C \mid R_{1}C$
+\\\hspace*{6mm} $A \rightarrow SR_{)} \mid R_{0}R_{)}\mid R_{1}R_{)}$
+\\\hspace*{6mm} $B \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1}$
+\\\hspace*{6mm} $C \rightarrow R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1}$
+\\\hspace*{6mm} $R_{0} \rightarrow 0$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
 \\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
 \\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
 \\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
+\\\hspace*{6mm} $R_{(} \rightarrow ($
+\\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm}
 \end{itemize}
-\item Grammatik in Greibach-Normalform:
+\item Grammatik in Greibach-Normalform: Ausgangsgrammatik ist die Grammatik in CNF aus 1)
+\begin{itemize}
+\item Entferne Linksrekursion in S, da S über die Linksrekursiven Ableitungen SB und SC verfügt:
+\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{\neg} S \mid R_{\neg} R_{0} \mid R_{\neg} R_{1} \mid R_{0}B \mid R_{1}B \mid R_{0} C \mid R_{1}C \mid \hspace*{16mm}R_{(}AZ \mid R_{\neg} SZ \mid R_{\neg} R_{0}Z \mid R_{\neg} R_{1}Z \mid R_{0}BZ \mid R_{1}BZ \mid \hspace*{16mm}R_{0} CZ \mid R_{1}CZ$
+\\\hspace*{6mm} $A \rightarrow SR_{)} \mid R_{0}R_{)}\mid R_{1}R_{)}$
+\\\hspace*{6mm} $B \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1}$
+\\\hspace*{6mm} $C \rightarrow R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1}$
+\\\hspace*{6mm} $R_{0} \rightarrow 0$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
+\\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
+\\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
+\\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
+\\\hspace*{6mm} $R_{(} \rightarrow ($
+\\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm} $Z \rightarrow BZ \mid CZ \mid B \mid C$
+\item Löse die Ableitung $A \rightarrow SR_{)}$ und die von Z auf:
+\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{\neg} S \mid R_{\neg} R_{0} \mid R_{\neg} R_{1} \mid R_{0}B \mid R_{1}B \mid R_{0} C \mid R_{1}C \mid \hspace*{16mm}R_{(}AZ \mid R_{\neg} SZ \mid R_{\neg} R_{0}Z \mid R_{\neg} R_{1}Z \mid R_{0}BZ \mid R_{1}BZ \mid \hspace*{16mm}R_{0} CZ \mid R_{1}CZ$
+\\\hspace*{6mm} $A \rightarrow R_{0}R_{)}\mid R_{1}R_{)}\mid R_{(}AR_{)}\mid R_{\neg} SR_{)} \mid R_{\neg} R_{0}R_{)} \mid R_{\neg} R_{1}R_{)} \mid \hspace*{16mm}R_{0}BR_{)} \mid R_{1}BR_{)} \mid R_{0} CR_{)} \mid R_{1}CR_{)} \mid R_{(}AZR_{)} \mid R_{\neg} SZR_{)} \mid \hspace*{16mm}R_{\neg} R_{0}ZR_{)} \mid R_{\neg} R_{1}ZR_{)} \mid R_{0}BZR_{)} \mid R_{1}BZR_{)} \mid R_{0} CZR_{)} \mid \hspace*{16mm}R_{1}CZR_{)}$
+\\\hspace*{6mm} $B \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1}$
+\\\hspace*{6mm} $C \rightarrow R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1}$
+\\\hspace*{6mm} $R_{0} \rightarrow 0$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
+\\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
+\\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
+\\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
+\\\hspace*{6mm} $R_{(} \rightarrow ($
+\\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm} $Z \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1} \mid R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1} \mid R_{\wedge} SZ \mid \hspace*{16mm}R_{\wedge}R_{0}Z \mid R_{\wedge}R_{1}Z \mid R_{\vee} SZ \mid R_{\vee}R_{0}Z \mid R_{\vee}R_{1}Z$
+\item Leite jedes erste Nichtterminal auf sein entsprechendes Terminalsymbol ab $\rightarrow$ fertige Greibach-Normalform:
+\\\hspace*{6mm} $S \rightarrow (A\mid \neg S \mid \neg R_{0} \mid \neg R_{1} \mid 0B \mid 1B \mid 0 C \mid 1C \mid (AZ \mid \neg SZ \mid \hspace*{16,5mm} \neg R_{0}Z \mid \neg R_{1}Z \mid 0BZ \mid 1BZ \mid  0 CZ \mid 1 CZ$
+\\\hspace*{6mm} $A \rightarrow 0R_{)}\mid 1R_{)}\mid (AR_{)}\mid \neg SR_{)} \mid \neg R_{0}R_{)} \mid \neg R_{1}R_{)} \mid 0BR_{)} \mid \hspace*{16,5mm} 1BR_{)} \mid 0 CR_{)} \mid 1CR_{)} \mid (AZR_{)} \mid \neg SZR_{)} \mid \neg R_{0}ZR_{)} \mid \hspace*{16,5mm}\neg R_{1}ZR_{)} \mid 0BZR_{)} \mid 1BZR_{)} \mid 0 CZR_{)} \mid 1CZR_{)}$
+\\\hspace*{6mm} $B \rightarrow \wedge S \mid \wedge R_{0} \mid \wedge R_{1}$
+\\\hspace*{6mm} $C \rightarrow \vee S \mid \vee R_{0} \mid \vee R_{1}$
+\\\hspace*{6mm} $R_{0} \rightarrow 0$
+\\\hspace*{6mm} $R_{1} \rightarrow 1$
+\\\hspace*{6mm} $R_{\wedge} \rightarrow \wedge$
+\\\hspace*{6mm} $R_{\vee} \rightarrow \vee$
+\\\hspace*{6mm} $R_{\neg} \rightarrow \neg$
+\\\hspace*{6mm} $R_{(} \rightarrow ($
+\\\hspace*{6mm} $R_{)} \rightarrow )$
+\\\hspace*{6mm} $Z \rightarrow \wedge S \mid \wedge R_{0} \mid \wedge R_{1} \mid \vee S \mid \vee R_{0} \mid \vee R_{1} \mid \wedge SZ \mid \wedge R_{0}Z \mid \hspace*{16,5mm} \wedge R_{1}Z \mid \vee SZ \mid \vee R_{0}Z \mid \vee R_{1}Z$
+
+\end{itemize} 
 \end{enumerate}
 
 
