@@ -68,7 +68,7 @@
 \\\hspace*{6mm} $R_{)} \rightarrow )$
 \\\hspace*{6mm}
 \item Streichen der Kettenregeln und fertige Chomsky-Normalform:
-\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{\neg} S \mid R_{\neg} R_{0} \mid R_{\neg} R_{1} \mid S B \mid R_{0}B \mid R_{1}B \mid \hspace*{17mm} SC \mid R_{0} C \mid R_{1}C$
+\\\hspace*{6mm} $S \rightarrow R_{(}A\mid R_{\neg} S \mid R_{\neg} R_{0} \mid R_{\neg} R_{1} \mid S B \mid R_{0}B \mid R_{1}B \mid \hspace*{17mm} SC \mid R_{0} C \mid R_{1}C \mid 0\mid 1$
 \\\hspace*{6mm} $A \rightarrow SR_{)} \mid R_{0}R_{)}\mid R_{1}R_{)}$
 \\\hspace*{6mm} $B \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1}$
 \\\hspace*{6mm} $C \rightarrow R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1}$
@@ -110,7 +110,7 @@
 \\\hspace*{6mm} $R_{)} \rightarrow )$
 \\\hspace*{6mm} $Z \rightarrow R_{\wedge} S \mid R_{\wedge}R_{0} \mid R_{\wedge}R_{1} \mid R_{\vee} S \mid R_{\vee}R_{0} \mid R_{\vee}R_{1} \mid R_{\wedge} SZ \mid \hspace*{16mm}R_{\wedge}R_{0}Z \mid R_{\wedge}R_{1}Z \mid R_{\vee} SZ \mid R_{\vee}R_{0}Z \mid R_{\vee}R_{1}Z$
 \item Leite jedes erste Nichtterminal auf sein entsprechendes Terminalsymbol ab $\rightarrow$ fertige Greibach-Normalform:
-\\\hspace*{6mm} $S \rightarrow (A\mid \neg S \mid \neg R_{0} \mid \neg R_{1} \mid 0B \mid 1B \mid 0 C \mid 1C \mid (AZ \mid \neg SZ \mid \hspace*{16,5mm} \neg R_{0}Z \mid \neg R_{1}Z \mid 0BZ \mid 1BZ \mid  0 CZ \mid 1 CZ$
+\\\hspace*{6mm} $S \rightarrow (A\mid \neg S \mid \neg R_{0} \mid \neg R_{1} \mid 0B \mid 1B \mid 0 C \mid 1C \mid (AZ \mid \neg SZ \mid \hspace*{16,5mm} \neg R_{0}Z \mid \neg R_{1}Z \mid 0BZ \mid 1BZ \mid  0 CZ \mid 1 CZ\mid 0\mid 1$
 \\\hspace*{6mm} $A \rightarrow 0R_{)}\mid 1R_{)}\mid (AR_{)}\mid \neg SR_{)} \mid \neg R_{0}R_{)} \mid \neg R_{1}R_{)} \mid 0BR_{)} \mid \hspace*{16,5mm} 1BR_{)} \mid 0 CR_{)} \mid 1CR_{)} \mid (AZR_{)} \mid \neg SZR_{)} \mid \neg R_{0}ZR_{)} \mid \hspace*{16,5mm}\neg R_{1}ZR_{)} \mid 0BZR_{)} \mid 1BZR_{)} \mid 0 CZR_{)} \mid 1CZR_{)}$
 \\\hspace*{6mm} $B \rightarrow \wedge S \mid \wedge R_{0} \mid \wedge R_{1}$
 \\\hspace*{6mm} $C \rightarrow \vee S \mid \vee R_{0} \mid \vee R_{1}$
