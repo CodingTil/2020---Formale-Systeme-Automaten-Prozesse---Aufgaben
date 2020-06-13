@@ -72,34 +72,36 @@ Damit ist $uv^2wx^2y\not\in L_2$ also gilt das Pumpinglemma nicht und $L_2$ ist 
 \item[a)]
 \begin{center}
 		\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-			\node[initial,state]	(0)										{};
-			\node[state]			(q0)	[above right=1cm and 2cm of 0]	{$q_0$};
-			\node[state]			(q1)	[right=2cm of q0]				{$q_1$};
-			\node[state]			(q2)	[below right=1cm and 2cm of 0] 	{$q_2$};
-			\node[state]			(q3)	[right=2cm of q2] 				{$q_3$};	
-			\node[state,accepting]	(q4) 	[right=7cm of 0]				{$q_4$};
+			\node[initial,state]	(q0)									{$q_0$};
+			\node[state]			(q1)	[above right=1cm and 2cm of q0]	{$q_1$};
+			\node[state]			(q2)	[right=2cm of q1]				{$q_2$};
+			\node[state]			(q3)	[below right=1cm and 2cm of q0]	{$q_3$};
+			\node[state]			(q4)	[right=2cm of q3] 				{$q_4$};	
+			\node[state,accepting]	(q5) 	[right=7cm of q0]				{$q_5$};
 
-\path	(0) 	edge [above left] node {$\epsilon$, $X \mid X$} 			(q0)
-			 	edge [below left] node {$\epsilon$, $X \mid X$} 			(q2)
-		(q0)	edge [loop above] node[align=left] {$a, X \mid aaaX$\\
+\path	(q0) 	edge [above left] node {$\epsilon$, $X \mid X$} 			(q1)
+			 	edge [below left] node {$\epsilon$, $X \mid X$} 			(q3)
+		(q1)	edge [loop above] node[align=left] {$a, X \mid aaaX$\\
 										$b, X \mid X$\\
-										$c, X \mid X$} 						(q0)
-				edge [above]	  node {$\epsilon, X \mid X$}				(q1)
-		(q1)	edge [loop above] node[align=left] {$a, X \mid X$\\
+										$c, X \mid X$} 						(q1)
+				edge [above]	  node {$\epsilon, X \mid X$}				(q2)
+		(q2)	edge [loop above] node[align=left] {$a, X \mid X$\\
 										$b, a \mid \epsilon$\\
-										$c, a \mid \epsilon$} 				(q1)
-				edge [above right]node {$\epsilon, \Gamma_0 \mid \Gamma_0$} (q4)
-		(q2)	edge [loop below] node[align=left] {$a, X \mid X$\\
+										$c, a \mid \epsilon$} 				(q2)
+				edge [above right]node {$\epsilon, \Gamma_0 \mid \Gamma_0$} (q5)
+		(q3)	edge [loop below] node[align=left] {$a, X \mid X$\\
 										$b, X \mid X$\\
-										$c, X \mid cX$}						(q2)
-				edge [below]	  node {$\epsilon, X \mid X$}				(q3)
-		(q3)	edge [loop below] node[align=left] {$a, cc \mid \epsilon$\\
+										$c, X \mid cX$}						(q3)
+				edge [below]	  node {$\epsilon, X \mid X$}				(q4)
+		(q4)	edge [loop below] node[align=left] {$a, cc \mid \epsilon$\\
 										$b, X \mid X$\\
-										$c, X \mid X$} 						(q3)
-				edge [below right]node {$\epsilon, \Gamma_0 \mid \Gamma_0$}	(q4)	
+										$c, X \mid X$} 						(q4)
+				edge [below right]node {$\epsilon, \Gamma_0 \mid \Gamma_0$}	(q5)	
 ;
 \end{tikzpicture}
 \end{center}
+\item[b)]
+
 \end{itemize}
 
 
