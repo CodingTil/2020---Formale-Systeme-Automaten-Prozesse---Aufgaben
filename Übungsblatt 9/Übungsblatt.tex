@@ -58,8 +58,7 @@ Da alle Worte in $L_3$ eine Länge des Vielfaches von 2 sind, muss $\vert vx \ve
 \\Wenn Terminale links von dem ersten $c$ hinzugefügt werden, ist $z_3 \not\in L_3$, da es mind. ein $w_j=a$ gibt, sodass $w_{j+m}=w_j=a$.
 \\Wenn Terminale rechts von dem ersten $c$ hinzugefügt werden, ist $z_3 \not\in L_3$, da $m$-Positionen rechts von dem ersten $c$ ebenfalls ein $c$ stehen wird.
 \\Wenn das erste $c$ mit in $vx$ steht, gelten Fall 1 und Fall 2 trotzdem.
-
-\\Damit gilt das Pumping-Lemma nicht und $L_3$ ist nicht kontextfrei.
+\\\\Damit gilt das Pumping-Lemma nicht und $L_3$ ist nicht kontextfrei.
 
 \end{enumerate}
 
@@ -103,8 +102,19 @@ Da alle Worte in $L_3$ eine Länge des Vielfaches von 2 sind, muss $\vert vx \ve
 \end{tikzpicture}
 \end{center}
 
-\item
+\item Zu zeigen: Wort $w$ wrd vom PDA angenommen $\Leftrightarrow$ $w\in L$.
+\begin{itemize}
+\item[$"\Leftarrow"$] Sei $w$ ein beliebiges Wort aus L.
+\\Dann gilt: $w=uv$ mit $3\cdot \vert u \vert _a = \vert v \vert _b + \vert v \vert _c \lor \vert u \vert _c = 2\cdot \vert v \vert _a$.
+\\Falls $3\cdot \vert u \vert _a = \vert v \vert _b + \vert v \vert _c$ gilt, dann wird $w$ angenommen, da $q_1$ $u$ so erstellt, dass jedes mal wenn $a$ hinzufefügt wird, drei $a$'s auf den Keller abgelegt werden. $q_3$ erstellt $v$ dann so, dass jedes mal, wenn ein $b$ oder ein $c$ gelesen wird, ein $a$ vom Keller genommen wird. Da der Keller am Ender leer ist, wird das Wort dann in $q_5$ angenommen.
+\\Falls $\vert u \vert _c = 2\cdot \vert v \vert _a$ gilt, dann wird $w$ angenommen, da $q_2$ $u$ so erstellt, dass jedes mal, wenn ein $c$ gelesen wird, ein $c$ auf den Kellerspeicher abgelegt wird. $q_3$ erstellt dann $v$ so, dass jedes mal wenn ein $a$ gelesen wird, zewei dieser $c$ vom Keller gelöscht werden. Da der Keller am Ende dann leer ist, wird das Wort dann in $q_5$ angenommen.
 
+\item[$"\Rightarrow"$] Sei $w$ ein beliebiges Wort, dass vom PDA angenommen wird.
+\\Dann wurde $w$ entweder in $q_1$ und $q_3$ oder in $q_2$ und $q_4$ erstellt. \\Falls $w$ in $q_1$ und $q_3$ erstellt wurde, gilt  $3\cdot \vert u \vert _a = \vert v \vert _b + \vert v \vert _c$ für $w=uv$, denn in $q_1$ wird sichergestellt, dass jedes mal in $u$ ein $a$ hinzugefügt wird, drei $a$'s auf den Keller abgelegt werden, welche dann in $q_3$ durch $b$'s oder $c$'s gelöscht werden.
+\\Falls $w$ in$q_2$ und $q_4$ erstellt wurde, gilt $\vert u \vert _c = 2\cdot \vert v \vert _a$ für $w=uv$, denn in $q_2$ wird sichergestellt, dass jedes mal, wenn ein $c$ gelesen wird, ein $c$ auf dem Keller abgelegt wird. Zwei dieser $c$'s werden dann in $q_4$ verbraucht, wenn ein $a$ gelesen wird.
+\end{itemize}
+
+Somit ist die Korrektheit und Vollständigkeit des Automaten bewiesen. 
 \end{enumerate}
 
 
