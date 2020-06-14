@@ -35,17 +35,17 @@
 \node[state]			(B2)	[right=2cm of B1]					{B2};
 \node[state,accepting]	(1)		[below right=1cm and 2cm of A2]		{};
 
-\path	(0) 	edge [above] node {a,$\Gamma_0 \mid$n$\Gamma_0$} (A1)
-		(0) 	edge [below] node {b,$\Gamma_0 \mid$n$\Gamma_0$} (B1)
+\path	(0) 	edge [above left] node {a,$\Gamma_0 \mid$n$\Gamma_0$} (A1)
+		(0) 	edge [below left] node {b,$\Gamma_0 \mid$n$\Gamma_0$} (B1)
 		(A1)	edge [above] node {a,n$\mid \epsilon$} (A2)
 		(A1)	edge [left] node {b,X$\mid$nX} (B1)
 		(A1)	edge [loop above, above] node {a,X$\mid$nX} (A1)
 		(B1)	edge [below] node {b,n$\mid \epsilon$} (B2)
 		(B1)	edge [loop below, below] node {b,X$\mid$nX} (B1)
-		(A2)	edge [above] node {a,$\Gamma_0 \mid \Gamma_0$} (1)
+		(A2)	edge [above right] node {a,$\Gamma_0 \mid \Gamma_0$} (1)
 		(A2)	edge [left] node {b,n$\mid \epsilon$} (B2)
 		(A2)	edge [loop above, above] node {a,n$\mid \epsilon$} (A2)
-		(B2)	edge [below] node {b,$\Gamma_0 \mid \Gamma_0$} (1)
+		(B2)	edge [below right] node {b,$\Gamma_0 \mid \Gamma_0$} (1)
 		(B2)	edge [loop below, below] node {b,n$\mid \epsilon$} (B2)
 ;
 \end{tikzpicture}
@@ -67,9 +67,8 @@ Damit ist $uv^2wx^2y\not\in L_2$ also gilt das Pumpinglemma nicht und $L_2$ ist 
 \end{enumerate}
 
 \paragraph{Aufgabe H31}
-%nicht sicher ob das so funktioniert, sorry musste den Stoff schnell nachholen :/
-\begin{itemize}
-\item[a)]
+\begin{enumerate}[label=\alph*)]
+\item Kellerautomat für $L$:
 \begin{center}
 		\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
 			\node[initial,state]	(q0)									{$q_0$};
@@ -78,13 +77,18 @@ Damit ist $uv^2wx^2y\not\in L_2$ also gilt das Pumpinglemma nicht und $L_2$ ist 
 			\node[state]			(q3)	[below right=1cm and 2cm of q0]	{$q_3$};
 			\node[state]			(q4)	[right=2cm of q3] 				{$q_4$};	
 			\node[state,accepting]	(q5) 	[right=7cm of q0]				{$q_5$};
+			\node[state]			(q6)	[below right=2.5cm and 1.25cm of q5]	{$q_6$};
+			\node[state]			(q7)	[above left=0.4cm and 3cm of q1]		{$q_7$};
+			\node[state]			(q8)	[above left=1cm and 2cm of q7]		{$q_8$};
 
 \path	(q0) 	edge [above left] node {$\epsilon$, $X \mid X$} 			(q1)
 			 	edge [below left] node {$\epsilon$, $X \mid X$} 			(q3)
-		(q1)	edge [loop above] node[align=left] {$a, X \mid aaaX$\\
-										$b, X \mid X$\\
+		(q1)	edge [loop above] node[align=left] {$b, X \mid X$\\
 										$c, X \mid X$} 						(q1)
 				edge [above]	  node {$\epsilon, X \mid X$}				(q2)
+				edge [below, bend left=10] node {$a, X \mid aX$}			(q7)
+		(q7)	edge [below, bend left=10] node {$\epsilon , a \mid aa$}	(q8)
+		(q8)	edge [above, bend left=10] node {$\epsilon , a \mid aa$}	(q1)
 		(q2)	edge [loop above] node[align=left] {$a, X \mid X$\\
 										$b, a \mid \epsilon$\\
 										$c, a \mid \epsilon$} 				(q2)
@@ -93,16 +97,18 @@ Damit ist $uv^2wx^2y\not\in L_2$ also gilt das Pumpinglemma nicht und $L_2$ ist 
 										$b, X \mid X$\\
 										$c, X \mid cX$}						(q3)
 				edge [below]	  node {$\epsilon, X \mid X$}				(q4)
-		(q4)	edge [loop below] node[align=left] {$a, cc \mid \epsilon$\\
-										$b, X \mid X$\\
+		(q4)	edge [loop below] node[align=left] {$b, X \mid X$\\
 										$c, X \mid X$} 						(q4)
-				edge [below right]node {$\epsilon, \Gamma_0 \mid \Gamma_0$}	(q5)	
+				edge [below right]node {$\epsilon, \Gamma_0 \mid \Gamma_0$}	(q5)
+				edge [above, bend left=10]	  node {$a,c \mid \epsilon$}	(q6)
+		(q6)	edge [below, bend left=10]	  node {$\epsilon ,c \mid \epsilon$} (q4)
 ;
 \end{tikzpicture}
 \end{center}
-\item[b)]
 
-\end{itemize}
+\item
+
+\end{enumerate}
 
 
 \paragraph{Aufgabe H32}
