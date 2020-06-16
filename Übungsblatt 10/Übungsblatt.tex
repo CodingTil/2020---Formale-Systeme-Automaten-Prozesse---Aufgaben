@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+
+%Packages
+\usepackage{amsfonts}	      %Mathematische Zeichen und Fonts
+\usepackage{mathtools}        %Extra Mathematische Symbole
+\usepackage{extarrows}	      %Extra Pfeile
+\usepackage{listings}         %Codeansicht
+\usepackage{scrlayer-scrpage} %Seitenkopf
+\usepackage{tikz}             %tikz
+\usepackage{enumitem}		  %Enumerate
+\usepackage{listings}		  %Code snippets
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+\usepackage{tikz-qtree}
+
+\usetikzlibrary{arrows, automata, positioning}
+\pagestyle{scrheadings}
+
+\begin{document}
+
+%Header
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 10} \\Tutorium 11}
+\ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
+
+%Seiteninhalt
+\paragraph{Aufgabe H33} Sei $L$ eine kontextfreie Sprache. Dann gibt es eine Grammatik $G$ in CNF, sodass $L=L(G)$. Dann hat $G$ also nur Produktionen der Form:
+\begin{align*}
+A &\rightarrow BC \\
+A &\rightarrow a
+\end{align*}
+$L^R$ ist definiert als $\{w^R \mid w \in L\}$.
+\\Beschreibe $G^R$, wieder als CNF, wie folgt:
+\begin{align*}
+A \rightarrow BC \in G &\Rightarrow A \rightarrow CB \in G^R \\
+A \rightarrow a \in G &\Rightarrow A \rightarrow a \in G^R
+\end{align*}
+Zeige nun: $L^R=L(G^R)$
+Beweis per Induktion über Anzahl der Ableitungen:
+\begin{itemize}
+\item[I.A.] 
+\begin{enumerate}[label=\arabic*)]
+\item Sei $A \rightarrow a \in G$. Dann ist $(A \rightarrow a)^R = A \rightarrow a^R = A \rightarrow a \in G^R$.
+\item Sei $A \rightarrow BC \in G$ und $B\rightarrow b, C \rightarrow c \in G \cap G^R$.
+\\Dann ist $(A \rightarrow BC)^R = A \rightarrow B^R C^R \in G^R; B,C \in G \\\Leftrightarrow A \rightarrow CB \in G^R; B,C \in G^R$.
+\end{enumerate}
+\item[I.V.] Die Behauptung gelte für eine beliebige, aber feste Anzahl an Ableitungen.
+\item[I.S.] Sei $X \rightarrow YZ \in G$ und $Y \rightarrow AB, Z \rightarrow CD \in G; A,B,C,D \in G$ mit $Y \rightarrow BA, Z \rightarrow DC \in G^R; A,B,C,D \in G^R$.
+\\Dann gilt $(X \rightarrow YZ)^R = X \rightarrow Z^R Y^R \in G^R; YZ \in G \\\Leftrightarrow X \rightarrow ZY \in G^R; YZ \in G^R$
+\end{itemize}
+Damit gilt $L^R=L(G^R)$, wodurch $L^R$ durch eine CNF beschrieben werden kann, wodurch $L^R$ kontextfrei ist, wodurch die kontextfreien Sprachen unter \textit{Spiegelung} abgeschossen sind.
+
+
+\paragraph{Aufgabe H34}
+
+
+\paragraph{Aufgabe H35} Folgende Grammatik mit Startsymbol $S$ beschreibt $L$:
+\begin{align*}
+S &\rightarrow \epsilon \mid ABCS	\\
+AB &\rightarrow BA					\\
+AC &\rightarrow CA					\\
+BA &\rightarrow AB					\\
+BC &\rightarrow CB					\\
+CA &\rightarrow AC					\\
+CB &\rightarrow BC					\\
+A &\rightarrow a					\\
+B &\rightarrow b					\\
+C &\rightarrow c					\\
+\end{align*}
+
+
+\end{document}
