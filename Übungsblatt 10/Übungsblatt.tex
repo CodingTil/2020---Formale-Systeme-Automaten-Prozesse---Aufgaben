@@ -55,7 +55,8 @@ Damit gilt $L^R=L(G^R)$, wodurch $L^R$ durch eine CNF beschrieben werden kann, w
 
 \paragraph{Aufgabe H35} Folgende Grammatik mit Startsymbol $S$ beschreibt $L$:
 \begin{align*}
-S &\rightarrow \epsilon \mid ABCS	\\
+S &\rightarrow \epsilon \mid S'	\\
+S' &\rightarrow ABCS' \mid ABC	    \\
 AB &\rightarrow BA					\\
 AC &\rightarrow CA					\\
 BA &\rightarrow AB					\\
