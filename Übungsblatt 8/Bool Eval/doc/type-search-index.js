@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"BracketMismatchException"},{"p":"<Unnamed>","l":"Main"},{"p":"<Unnamed>","l":"SyntaxErrorException"},{"p":"<Unnamed>","l":"UnknownSymbolException"}]
