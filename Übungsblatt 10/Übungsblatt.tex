@@ -50,7 +50,16 @@ Beweis per Induktion über Anzahl der Ableitungen:
 Damit gilt $L^R=L(G^R)$, wodurch $L^R$ durch eine CNF beschrieben werden kann, wodurch $L^R$ kontextfrei ist, wodurch die kontextfreien Sprachen unter \textit{Spiegelung} abgeschossen sind.
 
 
-\paragraph{Aufgabe H34}
+\paragraph{Aufgabe H34} Die linearen Sprachen können mehr Sprachen als die regulären Sprachen darstellen. Aus der Vorlesung und vorigen Übungen ist bekannt, dass die Sprachen der Palindrome, also beispielsweise $L=\{uu^R \mid u \in\{a,b\}^*\}$, nicht zu den Regulären Sprachen gehört. Jedoch beschreibt folgende lineare Grammatik diese Sprache:
+\begin{align*}
+S &\rightarrow aA \mid bB \mid \epsilon \\
+A &\rightarrow Sa
+B &\rightarrow Sb
+\end{align*}
+
+Aus der Vorlesung ist bekannt, dass die linkslinearen Sprachen, also der Form $A \rightarrow a$ und $A \rightarrow aB$, \textbf{genau} die Regulären Sprachen bilden. Also kann man jede Reguläre Sprache auf eine (Links-)Lineare Sprache zurückführen, indem man zu der Regulären Sprache als $\epsilon$-NFA darstellt, diesen so abändert, damit es nur einen Endzustand gibt, und dann die Transitionen als Linkslineare Grammatik aufschreibt (siehe VL).
+
+Damit ist also bewiesen, dass die Linearen Sprache eine echte Obermenge der Regulären Sprachen bilden.
 
 
 \paragraph{Aufgabe H35} Folgende Grammatik mit Startsymbol $S$ beschreibt $L$:
