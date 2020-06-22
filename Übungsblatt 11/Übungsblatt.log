@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 19:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 19:50
 entering extended mode
 **./Übungsblatt.tex
 (Übungsblatt.tex
@@ -1112,10 +1112,10 @@ Overfull \hbox (16.09726pt too wide) in paragraph at lines 114--201
 
 [2] [3] (Übungsblatt.aux) ) 
 Here is how much of TeX's memory you used:
- 21421 strings out of 492445
- 430474 string characters out of 3120290
- 502045 words of memory out of 3000000
- 25439 multiletter control sequences out of 15000+200000
+ 21425 strings out of 492445
+ 430529 string characters out of 3120290
+ 503549 words of memory out of 3000000
+ 25443 multiletter control sequences out of 15000+200000
  35602 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,19n,81p,431b,1075s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1131,7 +1131,7 @@ ype1/public/stix/stix-mathfrak.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX
 ams/MiKTeX 2.9/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/User/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/Use
 r/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on Übungsblatt.pdf (3 pages, 174355 bytes).
+Output written on Übungsblatt.pdf (3 pages, 174437 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
