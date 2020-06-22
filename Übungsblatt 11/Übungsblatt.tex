@@ -109,29 +109,33 @@
  \hline
 \end{tabular}
 \end{table}
-
+\newpage
 
 \paragraph{Aufgabe H37} Modelliere zuerst Automaten für $P_1$ und $P_2$:
 \begin{table}[h]
 \begin{tabular}{cc}
  \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state] (S1) 				{$S_1$};
-	\node[state] (A1) [right=2cm of S1]		{$A_1$};
-	\node	 	 (pr) [below=1cm of S1] 	{print};
+	\node[initial,state] (S) 				{$S_1$};
+	\node[state] (A) [right=2cm of S]		{$A_1$};
+	\node[state] (B) [below=1cm of S] 		{$B_1$};
+	\node[state] (E) [below=1cm of B]		{$E_1$};
  	
- 	\path 	(S1)edge [bend right, below]node {$u=0?$} 	(A1)
- 				edge [left]				node {$u=1?$}	(pr)
- 			(A1)edge [bend right, above]node {$u:=1$}	(S1);
+ 	\path 	(S)	edge [bend right, below]node {$u=0?$} 	(A)
+ 				edge [left]				node {$u=1?$}	(B)
+ 			(A)	edge [bend right, above]node {$u:=1$}	(S)
+ 			(B) edge [left]				node {print}	(E);
  \end{tikzpicture}
  &
  \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state] (S2) 				{$S_2$};
-	\node[state] (A2) [right=2cm of S2]		{$A_2$};
-	\node	 	 (pr) [below=1cm of S2] 	{print};
+	\node[initial,state] (S) 				{$S_2$};
+	\node[state] (A) [right=2cm of S]		{$A_2$};
+	\node[state] (B) [below=1cm of S] 		{$B_2$};
+	\node[state] (E) [below=1cm of B]		{$E_2$};
  	
- 	\path 	(S2)edge [bend right, below]node {$u=1?$} 	(A2)
- 				edge [left]				node {$u=0?$}	(pr)
- 			(A2)edge [bend right, above]node {$u:=0$}	(S2);
+ 	\path 	(S)	edge [bend right, below]node {$u=1?$} 	(A)
+ 				edge [left]				node {$u=0?$}	(B)
+ 			(A)	edge [bend right, above]node {$u:=0$}	(S)
+ 			(B) edge [left]				node {print}	(E);
  \end{tikzpicture}\\
 \end{tabular}
 \end{table}

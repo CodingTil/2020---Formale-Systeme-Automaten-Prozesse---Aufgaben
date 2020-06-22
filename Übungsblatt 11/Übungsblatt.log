@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 13:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 17:02
 entering extended mode
 **./Übungsblatt.tex
 (Übungsblatt.tex
@@ -1081,11 +1081,11 @@ File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 )
 LaTeX Font Info:    Font shape `T1/stix/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/stix/m/it' tried instead on input line 145.
+(Font)              Font shape `T1/stix/m/it' tried instead on input line 112.
 LaTeX Font Info:    Font shape `T1/stix/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/stix/b/sl' tried instead on input line 145.
+(Font)              Font shape `T1/stix/b/sl' tried instead on input line 112.
 LaTeX Font Info:    Font shape `T1/stix/b/sl' in size <10.95> not available
-(Font)              Font shape `T1/stix/b/it' tried instead on input line 145.
+(Font)              Font shape `T1/stix/b/it' tried instead on input line 112.
 
 
 Package scrlayer-scrpage Warning: \headheight to low.
@@ -1097,7 +1097,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                  \setlength{\headheight}{42.37592pt}
 (scrlayer-scrpage)                in your preamble.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 1
-45.
+12.
 
 
 Overfull \vbox (30.37592pt too high) has occurred while \output is active []
@@ -1105,13 +1105,13 @@ Overfull \vbox (30.37592pt too high) has occurred while \output is active []
 
 [1{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-]
+] [2]
 (Übungsblatt.aux) ) 
 Here is how much of TeX's memory you used:
- 21261 strings out of 492445
- 428021 string characters out of 3120290
- 500914 words of memory out of 3000000
- 25279 multiletter control sequences out of 15000+200000
+ 21254 strings out of 492445
+ 427904 string characters out of 3120290
+ 492210 words of memory out of 3000000
+ 25272 multiletter control sequences out of 15000+200000
  35602 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,19n,81p,431b,1075s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1126,9 +1126,9 @@ lic/stix/stix-mathfrak.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/stix/stix-mathit.pfb><C:/Users/User/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/User/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on Übungsblatt.pdf (1 page, 159768 bytes).
+Output written on Übungsblatt.pdf (2 pages, 161413 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
+ 45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
