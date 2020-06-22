@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 19:26
 entering extended mode
 **./Übungsblatt.tex
 (Übungsblatt.tex
@@ -1105,30 +1105,35 @@ Overfull \vbox (30.37592pt too high) has occurred while \output is active []
 
 [1{C:/Users/User/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-] [2]
-(Übungsblatt.aux) ) 
+]
+Overfull \hbox (16.09726pt too wide) in paragraph at lines 114--199
+[] 
+ []
+
+[2] [3] (Übungsblatt.aux) ) 
 Here is how much of TeX's memory you used:
- 21254 strings out of 492445
- 427904 string characters out of 3120290
- 492210 words of memory out of 3000000
- 25272 multiletter control sequences out of 15000+200000
+ 21409 strings out of 492445
+ 430223 string characters out of 3120290
+ 501019 words of memory out of 3000000
+ 25427 multiletter control sequences out of 15000+200000
  35602 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,19n,81p,431b,1075s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/
-dvips/stix/stix-t1.enc}<C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/stix/STIXGeneral-Bold.pfb><C:/Users/User/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:/Users/User/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/stix/STIXGeneral-Italic.pfb><C:
-/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/stix/STIXGener
-al-Regular.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/stix/stix-mathfrak.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/stix/stix-mathit.pfb><C:/Users/User/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/User/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on Übungsblatt.pdf (2 pages, 161413 bytes).
+{C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/enc/dvips/stix/stix-t1.enc}<C:/Users/User/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/User/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb><C:/Users/Us
+er/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/stix/STIXGeneral-Italic
+.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/stix/S
+TIXGeneral-Regular.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/stix/stix-mathfrak.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/stix/stix-mathit.pfb><C:/Users/User/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/User/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/Use
+r/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on Übungsblatt.pdf (3 pages, 174061 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

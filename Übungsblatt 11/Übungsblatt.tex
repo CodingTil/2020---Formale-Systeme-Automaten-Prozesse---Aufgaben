@@ -139,8 +139,63 @@
  \end{tikzpicture}\\
 \end{tabular}
 \end{table}
+\\
+Bilde $P_1 \shuffle P_2$. Es seien \\$w\Leftrightarrow u:=1$,\\ $x\Leftrightarrow u:=0$,\\ $y\Leftrightarrow u=1?$,\\ $z\Leftrightarrow u=0?$ und $pr\Leftrightarrow print$\\
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	%0th Layer	
+	\node[state,initial](SS) 							{$S_1 S_2$};
+	%1st Layer	
+	\node[state] 		(BS) [below left=3cm and 5.5cm]	{$B_1 S_2$};
+	\node[state] 		(SA) [below left=3cm and 2cm] 	{$S_1 A_2$};
+	\node[state] 		(AS) [below right=3cm and 2cm] 	{$A_1 S_2$};
+	\node[state] 		(SB) [below right=3cm and 5.5cm]{$S_1 B_2$};
+	%2nd Layer
+	\node[state] 		(ES) [below left=8cm and 5.5cm]	{$E_1 S_2$};
+	\node[state] 		(BA) [below left=8cm and 3cm]	{$B_1 A_2$};
+	\node[state] 		(BB) [below=8cm]				{$B_1 B_2$};
+	\node[state] 		(AA) [below=5.5cm]				{$A_1 A_2$};
+	\node[state] 		(AB) [below right=8cm and 3cm]	{$A_1 B_2$};
+	\node[state] 		(SE) [below right=8cm and 5.5cm]{$S_1 E_2$};
+	%3rd Layer
+	\node[state] 		(EA) [below left=12cm and 5.5cm]{$E_1 A_2$};
+	\node[state] 		(EB) [below left=12cm and 2cm] 	{$E_1 B_2$};
+	\node[state] 		(BE) [below right=12cm and 2cm] {$B_1 E_2$};
+	\node[state] 		(AE) [below right=12cm and 5.5cm]{$A_1 E_2$};
+	%4th Layer
+	\node[state]		(EE) [below=14cm]				{$E_1E_2$};
 
-
+	\path	(SS)edge [above left] 					node {y} (BS)
+				edge [bend left=15, below right]	node {y} (SA)
+				edge [bend right=15, below left]	node {z} (AS)
+				edge [above right]					node {z} (SB)
+			(BS)edge [left] 						node {pr} (ES)
+				edge [left] 						node {y} (BA)
+				edge [left] 						node {z} (BB)
+			(SA)edge [bend left=10, above left] 	node {x} (SS)
+				edge [right]				 		node {y} (BA)
+				edge [left] 						node {z} (AA)
+			(AS)edge [bend right=10, above right] 	node {w} (SS)
+				edge [right] 						node {y} (AA)				
+				edge [left] 						node {z} (AB)
+			(SB)edge [right] 						node {pr} (SE)
+				edge [right] 						node {y} (BB)				
+				edge [right] 						node {z} (AB)
+			(ES)edge [left] 						node {y} (EA)
+				edge [] node {z} (EB)
+			(BA)edge [] node {pr} (EA)
+				edge [bend right=10, right] 		node {x} (BS)
+			(BB)edge [] node {pr} (EB)
+				edge [] node {pr} (BE)
+			(AB)edge [] node {pr} (AE)
+				edge [bend left=10, left] 			node {w} (SB)	
+			(SE)edge [] node {z} (AE)
+				edge [] node {y} (BE)
+			(EB)edge [] node {pr} (EE)
+			(BE)edge [] node {pr} (EE)
+			(EA)edge [] node {w} (SE)
+			(AE)edge [] node {y} (ES)
+	;
+ \end{tikzpicture}
 
 
 
