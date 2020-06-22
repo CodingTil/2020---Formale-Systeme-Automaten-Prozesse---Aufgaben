@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+
+%Packages
+\usepackage{amsfonts}	      %Mathematische Zeichen und Fonts
+\usepackage{mathtools}        %Extra Mathematische Symbole
+\usepackage{extarrows}	      %Extra Pfeile
+\usepackage{listings}         %Codeansicht
+\usepackage{scrlayer-scrpage} %Seitenkopf
+\usepackage{tikz}             %tikz
+\usepackage{enumitem}		  %Enumerate
+\usepackage{listings}		  %Code snippets
+\usepackage{amsmath}
+\usepackage{stix}			  %Shuffle Symbol
+\usepackage[normalem]{ulem}
+\usepackage{tikz-qtree}
+
+\usetikzlibrary{arrows, automata, positioning}
+\pagestyle{scrheadings}
+
+\begin{document}
+
+%Header
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 11} \\Tutorium 11}
+\ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
+
+%Seiteninhalt
+\paragraph{Aufgabe H36}
+\begin{table}[]
+\begin{tabular}{|c|c|}
+ \hline
+ \multicolumn{1}{|l|}{$M_1 \circ M_2$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_2$:} \\
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state] (00) 					{0,0};
+	\node[state] (10) [right=1.5cm of 00] {1,0};
+	
+	\path	(00)edge [loop left, left] 			node {b} (00)
+				edge [bend right=20, below] 	node {a} (10)
+			(10)edge [bend right=20, above]		node {b} (00); 
+ \end{tikzpicture}
+ &  
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state] (00) 					{0,0};
+	\node[state] (10) [right=1.5cm of 00] {1,0};
+	
+	\path	(00)edge [loop left, left] 			node {b} (00)
+				edge [bend right=20, below] 	node {a} (10)
+			(10)edge [bend right=20, above]		node {b} (00)
+				edge [loop right, right]		node {b} (10); 
+ \end{tikzpicture}\\
+ \hline
+ \multicolumn{1}{|l|}{$M_1 \circ M_3$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_3$:} \\
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state] (00) 						{0,0};
+	\node[state] (01) [right=1.5cm of 00]	{0,1};
+	\node[state] (10) [below=1.5cm of 00] 	{1,0};
+	\node[state] (11) [right=1.5cm of 10] 	{1,1};
+ 	
+ 	\path 	(00)edge [above] 					node {b} (01)
+ 				edge [left]						node {a} (10)
+ 			(01)edge [right]					node {a} (11)
+ 			(10)edge [above]					node {b} (01);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state] (00) 						{0,0};
+	\node[state] (01) [right=1.5cm of 00]	{0,1};
+	\node[state] (10) [below=1.5cm of 00] 	{1,0};
+	\node[state] (11) [right=1.5cm of 10] 	{1,1};
+ 	
+ 	\path 	(00)edge [loop left, left]			node {b} (00)
+ 				edge [above] 					node {b} (01)
+ 				edge [bend right, left]			node {a} (10)
+ 			(01)edge [loop right, right]		node {b} (01)
+ 				edge [bend left, right]			node {a} (11)
+ 			(10)edge [above]					node {b} (11)
+ 				edge [bend right, right]		node {b} (00)
+ 			(11)edge [bend left, left]			node {b} (01);
+ \end{tikzpicture}\\
+ \hline
+ \multicolumn{1}{|l|}{$M_1 \circ M_4$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_4$:} \\
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state] (00) 						{0,0};
+	\node[state] (01) [right=1.5cm of 00]	{0,1};
+	\node[state] (11) [below=1.5cm of 01] 	{1,1};
+ 	
+ 	\path 	(00)edge [loop left] 					node {b} (00)
+ 				edge [above]						node {c} (01)
+ 			(01)edge [loop right]					node {b} (01)
+ 				edge [bend right, left]				node {a} (11)
+ 			(11)edge [bend right, right]			node {b} (01);
+ \end{tikzpicture}
+ & 
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state] (00) 						{0,0};
+	\node[state] (01) [right=1.5cm of 00]	{0,1};
+	\node[state] (10) [below=1.5cm of 00] 	{1,0};
+	\node[state] (11) [right=1.5cm of 10] 	{1,1};
+ 	
+ 	\path 	(00)edge [loop left, left]			node {b} (00)
+ 				edge [above] 					node {c} (01)
+ 				edge [bend right, left]			node {a} (10)
+ 			(01)edge [loop right, right]		node {a,b} (01)
+ 				edge [bend left, right]			node {a} (11)
+ 			(10)edge [above]					node {c} (11)
+ 				edge [bend right, right]		node {b} (00)
+ 			(11)edge [bend left, left]			node {b} (01)
+ 				edge [loop right]				node {a} (11);
+ \end{tikzpicture}\\
+ \hline
+\end{tabular}
+\end{table}
+
+
+\paragraph{Aufgabe H37} 
+
+\paragraph{Aufgabe H38} 
+
+\end{document}
