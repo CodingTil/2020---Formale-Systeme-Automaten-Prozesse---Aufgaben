@@ -24,8 +24,8 @@
 \ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
 
 %Seiteninhalt
-\paragraph{Aufgabe H36}
-\begin{table}[]
+\paragraph{Aufgabe H36} Die unsynchronisierten und synchronisierten Produkte:
+\begin{table}[h]
 \begin{tabular}{|c|c|}
  \hline
  \multicolumn{1}{|l|}{$M_1 \circ M_2$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_2$:} \\
@@ -111,7 +111,34 @@
 \end{table}
 
 
-\paragraph{Aufgabe H37} 
+\paragraph{Aufgabe H37} Modelliere zuerst Automaten für $P_1$ und $P_2$:
+\begin{table}[h]
+\begin{tabular}{cc}
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[initial,state] (S1) 				{$S_1$};
+	\node[state] (A1) [right=2cm of S1]		{$A_1$};
+	\node	 	 (pr) [below=1cm of S1] 	{print};
+ 	
+ 	\path 	(S1)edge [bend right, below]node {$u=0?$} 	(A1)
+ 				edge [left]				node {$u=1?$}	(pr)
+ 			(A1)edge [bend right, above]node {$u:=1$}	(S1);
+ \end{tikzpicture}
+ &
+ \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[initial,state] (S2) 				{$S_2$};
+	\node[state] (A2) [right=2cm of S2]		{$A_2$};
+	\node	 	 (pr) [below=1cm of S2] 	{print};
+ 	
+ 	\path 	(S2)edge [bend right, below]node {$u=1?$} 	(A2)
+ 				edge [left]				node {$u=0?$}	(pr)
+ 			(A2)edge [bend right, above]node {$u:=0$}	(S2);
+ \end{tikzpicture}\\
+\end{tabular}
+\end{table}
+
+
+
+
 
 \paragraph{Aufgabe H38} 
 

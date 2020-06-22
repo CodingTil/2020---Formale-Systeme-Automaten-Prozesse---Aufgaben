@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 12:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.3.3)  22 JUN 2020 13:33
 entering extended mode
 **./Übungsblatt.tex
 (Übungsblatt.tex
@@ -1024,12 +1024,11 @@ Package: epstopdf-base 2019-12-09 v2.10 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 28.
-
+LaTeX Font Info:    Font shape `T1/stix/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/stix/b/n' tried instead on input line 27.
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
 ne 29.
+
 ("C:\Users\User\AppData\Local\Programs\MiKTeX 2.9\tex/latex/stix\ls1stixscr.fd"
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
@@ -1081,14 +1080,12 @@ e 29.
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 )
-LaTeX Font Info:    Font shape `T1/stix/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/stix/b/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `T1/stix/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/stix/m/it' tried instead on input line 118.
+(Font)              Font shape `T1/stix/m/it' tried instead on input line 145.
 LaTeX Font Info:    Font shape `T1/stix/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/stix/b/sl' tried instead on input line 118.
+(Font)              Font shape `T1/stix/b/sl' tried instead on input line 145.
 LaTeX Font Info:    Font shape `T1/stix/b/sl' in size <10.95> not available
-(Font)              Font shape `T1/stix/b/it' tried instead on input line 118.
+(Font)              Font shape `T1/stix/b/it' tried instead on input line 145.
 
 
 Package scrlayer-scrpage Warning: \headheight to low.
@@ -1100,7 +1097,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                  \setlength{\headheight}{42.37592pt}
 (scrlayer-scrpage)                in your preamble.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 1
-18.
+45.
 
 
 Overfull \vbox (30.37592pt too high) has occurred while \output is active []
@@ -1111,13 +1108,13 @@ Overfull \vbox (30.37592pt too high) has occurred while \output is active []
 ]
 (Übungsblatt.aux) ) 
 Here is how much of TeX's memory you used:
- 21223 strings out of 492445
- 427515 string characters out of 3120290
- 492289 words of memory out of 3000000
- 25241 multiletter control sequences out of 15000+200000
+ 21261 strings out of 492445
+ 428021 string characters out of 3120290
+ 500914 words of memory out of 3000000
+ 25279 multiletter control sequences out of 15000+200000
  35602 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,19n,81p,431b,1073s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,19n,81p,431b,1075s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/
 dvips/stix/stix-t1.enc}<C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/public/stix/STIXGeneral-Bold.pfb><C:/Users/User/AppData/Local/Programs/MiK
@@ -1129,7 +1126,7 @@ lic/stix/stix-mathfrak.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/stix/stix-mathit.pfb><C:/Users/User/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/User/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/stix/stix-mathscr.pfb>
-Output written on Übungsblatt.pdf (1 page, 150604 bytes).
+Output written on Übungsblatt.pdf (1 page, 159768 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
