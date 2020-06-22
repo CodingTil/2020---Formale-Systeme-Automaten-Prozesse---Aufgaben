@@ -201,6 +201,70 @@ Bilde $P_1 \shuffle P_2$. Es seien \\$w\Leftrightarrow u:=1$,\\ $x\Leftrightarro
 
 
 
-\paragraph{Aufgabe H38} 
+\paragraph{Aufgabe H38} Bilde zunächst Kellerautomaten für $\{a^nb^n\mid n\in \mathbb{N}\}$\\
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[initial,state] (q0) 						{$q_0$};
+	\node[state] (q1) [right=1.5cm of q0]			{$q_1$};
+	\node[state] (q2) [right=1.5cm of q1] 			{$q_2$};
+	\node[state, accepting] (q3) [right=1.5cm of q2]{$q_3$};
+ 	
+ 	\path 	(q0)edge [above] node 					{$\epsilon,X\mid X$} 	(q1)
+ 				edge [bend right, below] node		{$\epsilon,X\mid X$}	(q3)
+ 			(q1)edge [loop above, above] node		{$a,X\mid aX$} 			(q1)
+ 				edge [above]			 node		{$b,a\mid \epsilon$} 	(q2) 
+ 			(q2)edge [loop above, above] node		{$b,a\mid \epsilon$} 	(q2)
+ 				edge [above]	node			{$\epsilon, \Gamma_0\mid\Gamma_0$} (q3)						
+ 	;
+\end{tikzpicture}
+\\Da sich der Komplementautomat nur aus deterministischen Automaten bilden lässt, muss der obige Automat dahingehend erweitert werden: \\
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[initial,state] (q0) 						{$q_0$};
+	\node[state] (q1) [right=1.5cm of q0]			{$q_1$};
+	\node[state] (q2) [right=1.5cm of q1] 			{$q_2$};
+	\node[state, accepting] (q3) [right=1.5cm of q2]{$q_3$};
+	\node[state] (q) [below=2cm of q0] 				{$q_{\emptyset}$};
+ 	
+ 	\path 	(q0)edge [above] node[align=left] 				{$\epsilon,X\mid X$\\
+ 															$a,X\mid aX$} (q1)
+ 				edge [left] node							{$b,X\mid X$} (q)
+ 			(q1)edge [loop above, above] node[align=left]	{$\epsilon,X\mid X$\\
+ 															$a,X\mid aX$} (q1)
+ 				edge [above]	node 						{$b,a\mid \epsilon$} (q2) 
+ 			(q2)edge [loop above, above] node 				{$b,a\mid \epsilon$} (q2)
+ 				edge [above]	node			{$\epsilon, \Gamma_0\mid\Gamma_0$} (q3)
+ 				edge [below right] node						{$a,X\mid X$} (q)
+ 			(q3)edge [loop right, right] node[align=left]	{$\epsilon,X\mid X$\\
+ 															$a, X\mid X$\\
+ 															$b, X\mid X$} (q3)							(q) edge [loop below, below] node[align=left]	{$\epsilon,X\mid X$\\
+ 															$a, X\mid X$\\
+ 															$b, X\mid X$} (q)				
+ 	;
+\end{tikzpicture}
+\\Nun lässt sich aus diesem Automat das Komplement $\{a,b\}^*\setminus \{a^nb^n\mid n\in \mathbb{N}\}$ bilden:\\
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[initial,state,accepting] (q0) 						{$q_0$};
+	\node[state,accepting] (q1) [right=1.5cm of q0]			{$q_1$};
+	\node[state,accepting] (q2) [right=1.5cm of q1] 			{$q_2$};
+	\node[state] (q3) [right=1.5cm of q2]{$q_3$};
+	\node[state,accepting] (q) [below=2cm of q0] 				{$q_{\emptyset}$};
+ 	
+ 	\path 	(q0)edge [above] node[align=left] 				{$\epsilon,X\mid X$\\
+ 															$a,X\mid aX$} (q1)
+ 				edge [left] node							{$b,X\mid X$} (q)
+ 			(q1)edge [loop above, above] node[align=left]	{$\epsilon,X\mid X$\\
+ 															$a,X\mid aX$} (q1)
+ 				edge [above]	node 						{$b,a\mid \epsilon$} (q2) 
+ 			(q2)edge [loop above, above] node 				{$b,a\mid \epsilon$} (q2)
+ 				edge [above]	node			{$\epsilon, \Gamma_0\mid\Gamma_0$} (q3)
+ 				edge [below right] node						{$a,X\mid X$} (q)
+ 			(q3)edge [loop right, right] node[align=left]	{$\epsilon,X\mid X$\\
+ 															$a, X\mid X$\\
+ 															$b, X\mid X$} (q3)							(q) edge [loop below, below] node[align=left]	{$\epsilon,X\mid X$\\
+ 															$a, X\mid X$\\
+ 															$b, X\mid X$} (q)				
+ 	;
+\end{tikzpicture}
 
+ 
+ 
 \end{document}
