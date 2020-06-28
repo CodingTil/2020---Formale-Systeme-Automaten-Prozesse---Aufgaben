@@ -111,7 +111,7 @@
 \end{table}
 \newpage
 
-\paragraph{Aufgabe H37} Modelliere zuerst Automaten für $P_1$ und $P_2$:
+\paragraph{Aufgabe H37} Modelliere zuerst Automaten für $P_1$ und $P_2$ mit dem Alphabet $\{u=0?,u=1?,u:=0,u:=1\}$:
 \begin{table}[h]
 \begin{tabular}{cc}
  \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
@@ -139,7 +139,18 @@
  \end{tikzpicture}\\
 \end{tabular}
 \end{table}
-\\
+\\ \ \\
+Bilde $P_1\circ P_2$:\\
+\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
+	\node[state,initial](SS) 							{$S_1 S_2$};
+	%1st Layer	
+	\node[state] 		(BA) [above right=2cm and 2cm]	{$B_1 A_2$};
+	\node[state] 		(AB) [below right=2cm and 2cm] 	{$A_1 B_2$};
+	\path 	(SS)	edge [above left] node {$u=1?$} (BA)
+					edge [below left] node {$u=0?$} (AB)
+	;
+ \end{tikzpicture}
+\newpage
 Bilde $P_1 \shuffle P_2$. Es seien \\$w\Leftrightarrow u:=1$,\\ $x\Leftrightarrow u:=0$,\\ $y\Leftrightarrow u=1?$,\\ $z\Leftrightarrow u=0?$ und $pr\Leftrightarrow print$\\
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
 	%0th Layer	
@@ -198,8 +209,8 @@ Bilde $P_1 \shuffle P_2$. Es seien \\$w\Leftrightarrow u:=1$,\\ $x\Leftrightarro
 			(AE)edge [color=cyan, right] 						node {x} (ES)
 	;
  \end{tikzpicture}
-
-
+\\
+Aus den Automaten für das synchronisierte und unsynchronisierte Produkt lässt sich erkennen, dass print nicht ausgeführt werden kann, wenn die Programme synchron laufen, da sie sich in einem Deadlock befinden. Laufen die Programme unsynchronisiert, lassen sich höchstens zwei prints erzeugen. Dies kann man daran erkennen, dass es keinen Pfad durch den Shuffle-Automaten von $P_1$ und $P_2$ gibt, der mehr als dreimal über eine print-Kante führt. 
 
 \paragraph{Aufgabe H38} Bilde zunächst Kellerautomaten für $\{a^nb^n\mid n\in \mathbb{N}\}$\\
 \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
