@@ -10,7 +10,6 @@
 \usepackage{enumitem}		  %Enumerate
 \usepackage{listings}		  %Code snippets
 \usepackage{amsmath}
-\usepackage{stix}			  %Shuffle Symbol
 \usepackage[normalem]{ulem}
 \usepackage{tikz-qtree}
 
@@ -20,262 +19,20 @@
 \begin{document}
 
 %Header
-\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 11} \\Tutorium 11}
+\ihead{\textbf{Formale Systeme, Automaten, Prozesse \\ Übungsblatt 12} \\Tutorium 11}
 \ohead{Tim Luther, 410886 \\ Til Mohr, 405959\\ Simon Michau, 406133}
 
 %Seiteninhalt
-\paragraph{Aufgabe H36} Die unsynchronisierten und synchronisierten Produkte:
-\begin{table}[h]
-\begin{tabular}{|c|c|}
- \hline
- \multicolumn{1}{|l|}{$M_1 \circ M_2$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_2$:} \\
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state] (00) 					{0,0};
-	\node[state] (10) [right=1.5cm of 00] {1,0};
-	
-	\path	(00)edge [loop left, left] 			node {b} (00)
-				edge [bend right=20, below] 	node {a} (10)
-			(10)edge [bend right=20, above]		node {b} (00); 
- \end{tikzpicture}
- &  
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state] (00) 					{0,0};
-	\node[state] (10) [right=1.5cm of 00] {1,0};
-	
-	\path	(00)edge [loop left, left] 			node {b} (00)
-				edge [bend right=20, below] 	node {a} (10)
-			(10)edge [bend right=20, above]		node {b} (00)
-				edge [loop right, right]		node {b} (10); 
- \end{tikzpicture}\\
- \hline
- \multicolumn{1}{|l|}{$M_1 \circ M_3$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_3$:} \\
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state] (00) 						{0,0};
-	\node[state] (01) [right=1.5cm of 00]	{0,1};
-	\node[state] (10) [below=1.5cm of 00] 	{1,0};
-	\node[state] (11) [right=1.5cm of 10] 	{1,1};
- 	
- 	\path 	(00)edge [above] 					node {b} (01)
- 				edge [left]						node {a} (10)
- 			(01)edge [right]					node {a} (11)
- 			(10)edge [above]					node {b} (01);
- \end{tikzpicture}
- &
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state] (00) 						{0,0};
-	\node[state] (01) [right=1.5cm of 00]	{0,1};
-	\node[state] (10) [below=1.5cm of 00] 	{1,0};
-	\node[state] (11) [right=1.5cm of 10] 	{1,1};
- 	
- 	\path 	(00)edge [loop left, left]			node {b} (00)
- 				edge [above] 					node {b} (01)
- 				edge [bend right, left]			node {a} (10)
- 			(01)edge [loop right, right]		node {b} (01)
- 				edge [bend left, right]			node {a} (11)
- 			(10)edge [above]					node {b} (11)
- 				edge [bend right, right]		node {b} (00)
- 			(11)edge [bend left, left]			node {b} (01);
- \end{tikzpicture}\\
- \hline
- \multicolumn{1}{|l|}{$M_1 \circ M_4$:} & \multicolumn{1}{|l|}{$M_1 \shuffle M_4$:} \\
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state] (00) 						{0,0};
-	\node[state] (01) [right=1.5cm of 00]	{0,1};
-	\node[state] (11) [below=1.5cm of 01] 	{1,1};
- 	
- 	\path 	(00)edge [loop left] 					node {b} (00)
- 				edge [above]						node {c} (01)
- 			(01)edge [loop right]					node {b} (01)
- 				edge [bend right, left]				node {a} (11)
- 			(11)edge [bend right, right]			node {b} (01);
- \end{tikzpicture}
- & 
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state] (00) 						{0,0};
-	\node[state] (01) [right=1.5cm of 00]	{0,1};
-	\node[state] (10) [below=1.5cm of 00] 	{1,0};
-	\node[state] (11) [right=1.5cm of 10] 	{1,1};
- 	
- 	\path 	(00)edge [loop left, left]			node {b} (00)
- 				edge [above] 					node {c} (01)
- 				edge [bend right, left]			node {a} (10)
- 			(01)edge [loop right, right]		node {a,b} (01)
- 				edge [bend left, right]			node {a} (11)
- 			(10)edge [above]					node {c} (11)
- 				edge [bend right, right]		node {b} (00)
- 			(11)edge [bend left, left]			node {b} (01)
- 				edge [loop right]				node {a} (11);
- \end{tikzpicture}\\
- \hline
-\end{tabular}
-\end{table}
-\newpage
+\paragraph{Aufgabe H39}
+\begin{enumerate}[label=\alph*)]
+\item 
+\item
+\end{enumerate}
 
-\paragraph{Aufgabe H37} Modelliere zuerst Automaten für $P_1$ und $P_2$ mit dem Alphabet $\{u=0?,u=1?,u:=0,u:=1\}$:
-\begin{table}[h]
-\begin{tabular}{cc}
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state] (S) 				{$S_1$};
-	\node[state] (A) [right=2cm of S]		{$A_1$};
-	\node[state] (B) [below=1cm of S] 		{$B_1$};
-	\node[state] (E) [below=1cm of B]		{$E_1$};
- 	
- 	\path 	(S)	edge [bend right, below]node {$u=0?$} 	(A)
- 				edge [left]				node {$u=1?$}	(B)
- 			(A)	edge [bend right, above]node {$u:=1$}	(S)
- 			(B) edge [left]				node {print}	(E);
- \end{tikzpicture}
- &
- \begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state] (S) 				{$S_2$};
-	\node[state] (A) [right=2cm of S]		{$A_2$};
-	\node[state] (B) [below=1cm of S] 		{$B_2$};
-	\node[state] (E) [below=1cm of B]		{$E_2$};
- 	
- 	\path 	(S)	edge [bend right, below]node {$u=1?$} 	(A)
- 				edge [left]				node {$u=0?$}	(B)
- 			(A)	edge [bend right, above]node {$u:=0$}	(S)
- 			(B) edge [left]				node {print}	(E);
- \end{tikzpicture}\\
-\end{tabular}
-\end{table}
-\\ \ \\
-Bilde $P_1\circ P_2$:\\
-\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[state,initial](SS) 							{$S_1 S_2$};
-	%1st Layer	
-	\node[state] 		(BA) [above right=2cm and 2cm]	{$B_1 A_2$};
-	\node[state] 		(AB) [below right=2cm and 2cm] 	{$A_1 B_2$};
-	\path 	(SS)	edge [above left] node {$u=1?$} (BA)
-					edge [below left] node {$u=0?$} (AB)
-	;
- \end{tikzpicture}
-\newpage
-Bilde $P_1 \shuffle P_2$. Es seien \\$w\Leftrightarrow u:=1$,\\ $x\Leftrightarrow u:=0$,\\ $y\Leftrightarrow u=1?$,\\ $z\Leftrightarrow u=0?$ und $pr\Leftrightarrow print$\\
-\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	%0th Layer	
-	\node[state,initial](SS) 							{$S_1 S_2$};
-	%1st Layer	
-	\node[state] 		(BS) [below left=3cm and 5.5cm]	{$B_1 S_2$};
-	\node[state] 		(SA) [below left=3cm and 2cm] 	{$S_1 A_2$};
-	\node[state] 		(AS) [below right=3cm and 2cm] 	{$A_1 S_2$};
-	\node[state] 		(SB) [below right=3cm and 5.5cm]{$S_1 B_2$};
-	%2nd Layer
-	\node[state] 		(ES) [below left=8cm and 5.5cm]	{$E_1 S_2$};
-	\node[state] 		(BA) [below left=8cm and 3cm]	{$B_1 A_2$};
-	\node[state] 		(BB) [below=8cm]				{$B_1 B_2$};
-	\node[state] 		(AA) [below=5.5cm]				{$A_1 A_2$};
-	\node[state] 		(AB) [below right=8cm and 3cm]	{$A_1 B_2$};
-	\node[state] 		(SE) [below right=8cm and 5.5cm]{$S_1 E_2$};
-	%3rd Layer
-	\node[state] 		(EA) [below left=12cm and 5.5cm]{$E_1 A_2$};
-	\node[state] 		(EB) [below left=12cm and 2cm] 	{$E_1 B_2$};
-	\node[state] 		(BE) [below right=12cm and 2cm] {$B_1 E_2$};
-	\node[state] 		(AE) [below right=12cm and 5.5cm]{$A_1 E_2$};
-	%4th Layer
-	\node[state]		(EE) [below=14cm]				{$E_1E_2$};
+\paragraph{Aufgabe H40}
 
-	\path	(SS)edge [above left] 								node {y} (BS)
-				edge [bend left=15, below right]				node {y} (SA)
-				edge [bend right=15, below left]				node {z} (AS)
-				edge [above right]								node {z} (SB)
-			(BS)edge [left] 									node {pr} (ES)
-				edge [bend right=10, left] 						node {y} (BA)
-				edge [left] 									node {z} (BB)
-			(SA)edge [color=cyan, bend left=10, above left] 	node {x} (SS)
-				edge [right]				 					node {y} (BA)
-				edge [bend right=10, left]						node {z} (AA)
-			(AS)edge [color=orange, bend right=10, above right] node {w} (SS)
-				edge [bend left=10, right] 						node {y} (AA)				
-				edge [left] 									node {z} (AB)
-			(SB)edge [right] 									node {pr} (SE)
-				edge [right] 									node {y} (BB)				
-				edge [bend left=10, right]						node {z} (AB)
-			(AA)edge [color=orange, bend right=10, right] 		node {w} (SA)
-				edge [color=cyan, bend left=10, left] 			node {x} (AS)
-			(ES)edge [left] 									node {y} (EA)
-				edge [below left] 								node {z} (EB)
-			(BA)edge [bend right=10, left] 						node {pr} (EA)
-				edge [color=cyan,bend right=10, right] 			node {x} (BS)
-			(BB)edge [bend right=10, left] 						node {pr} (EB)
-				edge [bend left=10, right] 						node {pr} (BE)
-			(AB)edge [bend left=10, right] 						node {pr} (AE)
-				edge [color=orange, bend left=10, left]			node {w} (SB)	
-			(SE)edge [right] 									node {z} (AE)
-				edge [below right] 								node {y} (BE)
-			(EB)edge [below left] 								node {pr} (EE)
-			(BE)edge [below right]			 					node {pr} (EE)
-			(EA)edge [color=orange, left]						node {w} (SE)
-			(AE)edge [color=cyan, right] 						node {x} (ES)
-	;
- \end{tikzpicture}
-\\
-Aus den Automaten für das synchronisierte und unsynchronisierte Produkt lässt sich erkennen, dass print nicht ausgeführt werden kann, wenn die Programme synchron laufen, da sie sich in einem Deadlock befinden. Laufen die Programme unsynchronisiert, lassen sich höchstens zwei prints erzeugen. Dies kann man daran erkennen, dass es keinen Pfad durch den Shuffle-Automaten von $P_1$ und $P_2$ gibt, der mehr als dreimal über eine print-Kante führt. 
 
-\paragraph{Aufgabe H38} Bilde zunächst Kellerautomaten für $\{a^nb^n\mid n\in \mathbb{N}\}$\\
-\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state] (q0) 						{$q_0$};
-	\node[state] (q1) [right=1.5cm of q0]			{$q_1$};
-	\node[state] (q2) [right=1.5cm of q1] 			{$q_2$};
-	\node[state, accepting] (q3) [right=1.5cm of q2]{$q_3$};
- 	
- 	\path 	(q0)edge [above] node 					{$\epsilon,X\mid X$} 	(q1)
- 				edge [bend right, below] node		{$\epsilon,X\mid X$}	(q3)
- 			(q1)edge [loop above, above] node		{$a,X\mid aX$} 			(q1)
- 				edge [above]			 node		{$b,a\mid \epsilon$} 	(q2) 
- 			(q2)edge [loop above, above] node		{$b,a\mid \epsilon$} 	(q2)
- 				edge [above]	node			{$\epsilon, \Gamma_0\mid\Gamma_0$} (q3)						
- 	;
-\end{tikzpicture}
-\\Da sich der Komplementautomat nur aus deterministischen Automaten bilden lässt, muss der obige Automat dahingehend erweitert werden: \\
-\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state] (q0) 						{$q_0$};
-	\node[state] (q1) [right=1.5cm of q0]			{$q_1$};
-	\node[state] (q2) [right=1.5cm of q1] 			{$q_2$};
-	\node[state, accepting] (q3) [right=1.5cm of q2]{$q_3$};
-	\node[state] (q) [below=2cm of q0] 				{$q_{\emptyset}$};
- 	
- 	\path 	(q0)edge [above] node[align=left] 				{$\epsilon,X\mid X$\\
- 															$a,X\mid aX$} (q1)
- 				edge [left] node							{$b,X\mid X$} (q)
- 			(q1)edge [loop above, above] node[align=left]	{$\epsilon,X\mid X$\\
- 															$a,X\mid aX$} (q1)
- 				edge [above]	node 						{$b,a\mid \epsilon$} (q2) 
- 			(q2)edge [loop above, above] node 				{$b,a\mid \epsilon$} (q2)
- 				edge [above]	node			{$\epsilon, \Gamma_0\mid\Gamma_0$} (q3)
- 				edge [below right] node						{$a,X\mid X$} (q)
- 			(q3)edge [loop right, right] node[align=left]	{$\epsilon,X\mid X$\\
- 															$a, X\mid X$\\
- 															$b, X\mid X$} (q3)							(q) edge [loop below, below] node[align=left]	{$\epsilon,X\mid X$\\
- 															$a, X\mid X$\\
- 															$b, X\mid X$} (q)				
- 	;
-\end{tikzpicture}
-\\Nun lässt sich aus diesem Automat das Komplement $\{a,b\}^*\setminus \{a^nb^n\mid n\in \mathbb{N}\}$ bilden:\\
-\begin{tikzpicture}[->, >=latex, node distance = 2cm, semithick]
-	\node[initial,state,accepting] (q0) 						{$q_0$};
-	\node[state,accepting] (q1) [right=1.5cm of q0]			{$q_1$};
-	\node[state,accepting] (q2) [right=1.5cm of q1] 			{$q_2$};
-	\node[state] (q3) [right=1.5cm of q2]{$q_3$};
-	\node[state,accepting] (q) [below=2cm of q0] 				{$q_{\emptyset}$};
- 	
- 	\path 	(q0)edge [above] node[align=left] 				{$\epsilon,X\mid X$\\
- 															$a,X\mid aX$} (q1)
- 				edge [left] node							{$b,X\mid X$} (q)
- 			(q1)edge [loop above, above] node[align=left]	{$\epsilon,X\mid X$\\
- 															$a,X\mid aX$} (q1)
- 				edge [above]	node 						{$b,a\mid \epsilon$} (q2) 
- 			(q2)edge [loop above, above] node 				{$b,a\mid \epsilon$} (q2)
- 				edge [above]	node			{$\epsilon, \Gamma_0\mid\Gamma_0$} (q3)
- 				edge [below right] node						{$a,X\mid X$} (q)
- 			(q3)edge [loop right, right] node[align=left]	{$\epsilon,X\mid X$\\
- 															$a, X\mid X$\\
- 															$b, X\mid X$} (q3)							(q) edge [loop below, below] node[align=left]	{$\epsilon,X\mid X$\\
- 															$a, X\mid X$\\
- 															$b, X\mid X$} (q)				
- 	;
-\end{tikzpicture}
+\paragraph{Aufgabe H41}
 
- 
  
 \end{document}
